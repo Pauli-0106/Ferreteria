@@ -1,0 +1,276 @@
+:root {
+  --Blanco: #ffffff;
+  --Oscuro: #212121;
+  --Primario: #ffc107;
+  --Secunadario: #0097a7;
+  --Gris: #757575;
+  --Rojo: #ff0000;
+  /* Aca podemos crear los colores que queramos y con el var(--Aca lo llamamos) */
+}
+/*Globales*/
+html {
+  font-size: 62.5%;
+  box-sizing: border-box; /* Hack para Box Model */
+  scroll-snap-type: y mandatory;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  font-size: 16px; /* 1rem = 10px */
+  font-family: "krub", sans-serif; /* Tipografia de la pagina Web */
+  background-image: linear-gradient(to top, #dfe9f3 0%, var(--Blanco) 100%);
+  /*Creamos el color que tendra el body. con el (to top le decimos de que lado ira )  */
+}
+.contenedor {
+  max-width: 120rem;
+  margin-top: 0; /*Arriba*/
+  margin-right: auto; /*Abajo*/
+  margin-bottom: 0; /*Derecha*/
+  margin-left: auto; /*Izquierda*/
+}
+.boton {
+  /*Creacion del Boton de CONTACTAR*/
+  background-color: var(--Secunadario); /*Color de fondo del botón*/
+  color: var(--Blanco); /*Color del Texto del botón*/
+  padding: 1rem 3rem; /*Espacio interno del botón*/
+  margin-top: 1rem;
+  font-size: 2rem; /*Tamaño de la fuente*/
+  text-decoration: none; /*Que no se subrayar*/
+  text-transform: uppercase; /*Convertir el texto en Mayusculas*/
+  font-weight: bold; /*Peso de la fuente*/
+  border-radius: 0.5rem; /*Los bordes redondeados*/
+  width: 90%;
+  text-align: center;
+  border: none;
+}
+@media (min-width: 480px) {
+  /*Adaptamos la pagina Web a los tamaños*/
+  .boton {
+    width: auto;
+  }
+}
+.boton:hover {
+  background-color: #ffc107;
+  color: #212121;
+  cursor: pointer;/*para que salga la mano el dedo en vez de la flecha*/
+}
+.sombra {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.48);
+  -moz-box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.48);
+  box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.48);
+  /* Sombreado de la pagina sacado de css matic */
+  background-color: var(--Blanco);
+  padding: 2rem; /*Separacion para arriba */
+  border-radius: 1rem; /* Bordes redondeados */
+}
+/*Tipografias*/
+h1 {
+  font-size: 3.8rem;
+}
+h2 {
+  font-size: 2.8rem;
+}
+h3 {
+  font-size: 1.8rem;
+}
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+/* Titulos */
+.Titulo {
+  text-align: center;
+  color: var(--Rojo);
+}
+.Titulo span {
+  font-size: 2rem;
+  color: var(--Oscuro);
+}
+/*Utilidades*/
+.w-sm-100{
+  width: 100%;
+}
+@media(min-width: 768px) {
+  .w-sm-100{
+    width: auto;
+  }
+    
+}
+.flex{
+  display: flex;
+}
+.alinear-derecha{
+  justify-content:flex-end ;
+}
+/* Navegación Principal */
+.nav-bg {
+  background-color: var(--Secunadario);
+}
+.Navegacion-principal {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .Navegacion-principal {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.Navegacion-principal a {
+  display: block;
+  text-align: center;
+  color: var(--Blanco);
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 1rem;
+}
+.Navegacion-principal a:hover {
+  background-color: var(--Primario);
+  color: #212121;
+}
+/* Hero */
+.Hero {
+  background-image: url(../img/hero.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 450px;
+  position: relative;
+  margin-bottom: 2rem; /* Separacion para abajo */
+}
+.contenido-hero {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0 0 0 /70%);
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.contenido-hero h2,
+.contenido-hero p {
+  color: var(--Blanco);
+}
+.contenido-hero span {
+  font-size: 3.8rem;
+  color: var(--Rojo);
+}
+.Ubicacion {
+  display: flex; /* El flex: el contenido crece automaticamente */
+  align-items: flex-end;
+}
+/* Servicios */
+.servicios, .Navegacion-principal, .formulario {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+@media (min-width: 768px) {
+  .servicios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1rem; /* Con esto podemos hacer las separaciones, sin usar un pading o margin  */
+  }
+}
+.servicio{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.servicio h3{
+  color:var(--Secunadario);
+  font-weight: normal;/*Letras mas delgadas*/
+}
+.servicio p {
+  line-height: 2; /* Nos dara un interniliado la distancia */
+}
+.servicio .iconos{
+  height: 15rem; /*Le pondremos una altura de 15rem*/
+  width: 15rem;/* Le pondremos una anchura de 15rem*/
+  background-color: var(--Primario);
+  border-radius: 50%;/*Curvear*/
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.servicio .iconos:hover{
+  background-color: #0097a7;
+  
+}
+
+/************** Contacto **************/
+.formulario {
+  background-color: #757575;
+  width: min(60rem , 100%);/*Utiliza el valor mas pequeño*/
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+.formulario fieldset{
+  border:none;
+}
+.formulario legend{
+  text-align: center;/*Texto centrado*/
+  font-size: 1.8rem;/*Texto mas grande*/
+  text-transform: uppercase;/*Letras mayusculas*/
+  font-weight: 700; /*Letras en negritas*/
+  margin-bottom: 2rem;/*Se separe un poco el texto (el principal eso si )*/
+  color: var(--Primario);
+}
+@media(min-width: 768px) {    
+    .contenedor-campos{
+      display: grid;/*Con esto podemos crear una las columnas*/
+      grid-template-columns: 50% 50%;
+      grid-template-rows: auto auto ;
+      column-gap: 1rem;
+    } 
+    .campo:nth-child(3),
+    .campo:nth-child(4) {
+      grid-column: 1 / 3;
+    }  
+}
+.campo{
+  margin-bottom: 1rem;
+}
+.campo label {
+  color: var(--Blanco);
+  font-weight: bold;
+  margin-bottom: .5rem;
+  display: block;
+}
+.campo textarea{
+  height: 20rem;/*Alargamps el textarea de mensaje (Es el unico textarea)*/
+}
+.input-text {
+  width: 100%;
+  border: none;
+  padding: 1.5rem;
+  border-radius: .5rem;
+}
+/********* FOOTER *********/
+.footer{
+  text-align: center;
+}
+
+/* Estilos personalizados para listas */
+.lista {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.lista li {
+  background: #e6e6e6;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+  color: var(--Oscuro);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}

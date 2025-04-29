@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proceso de Pago - FERREMAS</title>
+    
+    <link rel="preload" href="css/normalize.css" as="style" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="preload" href="css/styles.css" as="style" />
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <h1 class="Titulo"><span>The </span>FERREMAS</h1>
+    </header>
+    
+    <div class="nav-bg">
+        <nav class="Navegacion-principal contenedor">
+            <a href="index.html">Inicio</a>
+            <a href="manuales.html">Manuales</a>
+            <a href="basicos.html">Básicos</a>
+            <a href="seguridad.html">Seguridad</a>
+        </nav>
+    </div>
+
+    <main class="contenedor sombra">
+        <h2>Proceso de Pago</h2>
+        
+        <div class="formulario">
+            <form id="formulario-pago">
+                <fieldset>
+                    <legend>Datos de la Tarjeta</legend>
+                    
+                    <div class="contenedor-campos">
+                        <div class="campo">
+                            <label>Número de Tarjeta</label>
+                            <input class="input-text" type="text" placeholder="4242 4242 4242 4242" maxlength="16" required>
+                        </div>
+                        
+                        <div class="campo">
+                            <label>Titular de la Tarjeta</label>
+                            <input class="input-text" type="text" placeholder="JUAN PEREZ" required>
+                        </div>
+                        
+                        <div class="campo">
+                            <label>Fecha de Expiración</label>
+                            <input class="input-text" type="month" required>
+                        </div>
+                        
+                        <div class="campo">
+                            <label>CVV</label>
+                            <input class="input-text" type="text" placeholder="123" maxlength="3" required>
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <div class="flex alinear-derecha w-sm-100">
+                    <button class="boton" type="submit">Realizar Pago</button>
+                </div>
+            </form>
+            
+            <div id="mensaje-exito" class="oculto">
+                <h3>¡Pago Exitoso! 🎉</h3>
+                <p>Redirigiendo a la confirmación...</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="contenedor">
+            <p>Todos los derechos reservados &copy; 2025</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('formulario-pago').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Simulación de validación
+            const inputs = Array.from(this.elements).filter(el => el.tagName === 'INPUT');
+            const todosValidos = inputs.every(input => input.checkValidity());
+
+            if(todosValidos) {
+                document.getElementById('formulario-pago').classList.add('oculto');
+                document.getElementById('mensaje-exito').classList.remove('oculto');
+                
+                setTimeout(() => {
+                    window.location.href = 'confirmacion.html';
+                }, 2000);
+            } else {
+                alert('Por favor complete todos los campos correctamente');
+            }
+        });
+    </script>
+    <script src="js/pago.js"></script>
+</body>
+</html>

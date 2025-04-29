@@ -274,3 +274,70 @@ h3 {
   color: var(--Oscuro);
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+
+/* Nuevos estilos para el proceso de pago */
+#mensaje-exito {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+  text-align: center;
+  display: none;
+}
+
+#mensaje-exito.visible {
+  display: block;
+}
+
+.formulario-pago {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.oculto {
+  display: none;
+}
+/* Animaciones y Feedback Visual */
+@keyframes latido {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.mensaje-exito {
+  text-align: center;
+  padding: 3rem;
+  animation: latido 1.5s ease-in-out;
+}
+
+.texto-exito {
+  font-size: 1.8rem;
+  color: var(--Oscuro);
+  margin: 2rem 0;
+}
+
+/* Mejoras en Validación */
+input:invalid {
+  border: 2px solid #ff000078 !important;
+}
+
+input:valid {
+  border: 2px solid #0097a778 !important;
+}
+
+/* Spinner de Carga (para simular procesamiento) */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--Secunadario);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

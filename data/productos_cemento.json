@@ -1,0 +1,82 @@
+[
+  {
+    "nombre": "Cemento Portland Gris 25kg",
+    "marca": "Melón",
+    "modelo": "CP25-MG",
+    "precio": 5800,
+    "codigo": "CEM001",
+    "codigo_producto": "CEM-MEL-25"
+  },
+  {
+    "nombre": "Cemento Rápido Secado 20kg",
+    "marca": "Holcim",
+    "modelo": "RAPID20",
+    "precio": 6200,
+    "codigo": "CEM002",
+    "codigo_producto": "CEM-HLC-20R"
+  },
+  {
+    "nombre": "Cemento Blanco Extra Fino 15kg",
+    "marca": "Polpaico",
+    "modelo": "BLXF15",
+    "precio": 7100,
+    "codigo": "CEM003",
+    "codigo_producto": "CEM-POL-15B"
+  },
+  {
+    "nombre": "Cemento Alta Resistencia 30kg",
+    "marca": "Cruz Azul",
+    "modelo": "RES30",
+    "precio": 8300,
+    "codigo": "CEM004",
+    "codigo_producto": "CEM-CAZ-30"
+  },
+  {
+    "nombre": "Cemento Antisalitre 25kg",
+    "marca": "Cementos Bio Bio",
+    "modelo": "ANTIS25",
+    "precio": 5900,
+    "codigo": "CEM005",
+    "codigo_producto": "CEM-BIO-25A"
+  },
+  {
+    "nombre": "Cemento para Albañilería 25kg",
+    "marca": "Loma Negra",
+    "modelo": "ALBA25",
+    "precio": 5500,
+    "codigo": "CEM006",
+    "codigo_producto": "CEM-LNG-25"
+  },
+  {
+    "nombre": "Cemento Eco-Amigable 20kg",
+    "marca": "EcoCem",
+    "modelo": "ECO20",
+    "precio": 6800,
+    "codigo": "CEM007",
+    "codigo_producto": "CEM-ECO-20"
+  },
+  {
+    "nombre": "Cemento Súper Adhesivo 18kg",
+    "marca": "UltraFix",
+    "modelo": "ADH18",
+    "precio": 6200,
+    "codigo": "CEM008",
+    "codigo_producto": "CEM-UFX-18"
+  },
+  {
+    "nombre": "Cemento para Reparación Rápida 5kg",
+    "marca": "FixIt",
+    "modelo": "FIX5",
+    "precio": 2900,
+    "codigo": "CEM009",
+    "codigo_producto": "CEM-FIX-05"
+  },
+  {
+    "nombre": "Cemento Proyectos Profesionales 40kg",
+    "marca": "Construmax",
+    "modelo": "PRO40",
+    "precio": 9500,
+    "codigo": "CEM010",
+    "codigo_producto": "CEM-CMX-40"
+  }
+]

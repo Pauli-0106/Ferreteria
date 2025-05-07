@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FERREMAS</title>
+
+    <link rel="preload" href="{{ url_for('static', filename='css/normalize.css') }}" as="style" />
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <h1 class="Titulo"><span>The </span>FERREMAS</h1>
+    </header>
+    <div class="nav-bg">
+      <nav class="Navegacion-principal contenedor">
+        <a href="#">Trabajadores</a>
+        <a href="#">Clientes</a>
+        <a href="#">Catalogo</a>
+        <a href="#">Sucursal</a>
+      </nav>
+    </div>
+
+    <section class="Hero">
+      <div class="contenido-hero">
+        <h2>La mejor <span> ferretería</span></h2>
+      </div>
+    </section>
+
+    <main class="contenedor sombra">
+      <h2>Herramientas</h2>
+
+      <div class="servicios">
+        <section class="servicio">
+          <h3>Herramientas Manuales</h3>
+          <div class="iconos">
+            <a href="manuales.html">
+              <img src="{{ url_for('static', filename='img/tool-box.png') }}" alt="Icono Herramientas Manuales" width="44" height="44" />
+            </a>
+          </div>
+          <p>
+            En FERREMAS contamos con una amplia variedad de herramientas manuales ideales para trabajos de precisión, reparaciones domésticas y proyectos profesionales. Calidad, durabilidad y ergonomía en cada producto.
+          </p>
+        </section>
+
+        <section class="servicio">
+          <h3>Materiales Básicos</h3>
+          <div class="iconos">
+            <a href="basicos.html">
+              <img src="{{ url_for('static', filename='img/construccion.png') }}" alt="Icono Materiales Básicos" width="44" height="44" />
+            </a>
+          </div>
+          <p>
+            Desde clavos hasta adhesivos, tenemos todos los materiales esenciales que necesitas para construir, reparar o mejorar. Nuestro stock asegura soluciones confiables para cada etapa de tu proyecto.
+          </p>
+        </section>
+
+        <section class="servicio">
+          <h3>Equipos de Seguridad</h3>
+          <div class="iconos">
+            <a href="seguridad.html">
+              <img src="{{ url_for('static', filename='img/seguridad.png') }}" alt="Icono Equipos de Seguridad" width="44" height="44" />
+            </a>
+          </div>
+          <p>
+            Tu seguridad es nuestra prioridad. Encuentra guantes, cascos, lentes y más para protegerte durante cada tarea. Productos certificados y cómodos para trabajar con confianza.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="contenedor">
+        <p>Todos los derechos reservados &copy; 2025</p>
+      </div>
+    </footer>
+  </body>
+</html>

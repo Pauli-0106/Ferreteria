@@ -1,0 +1,82 @@
+[
+  {
+    "nombre": "Casco de Seguridad Industrial",
+    "marca": "ProtecSafe",
+    "modelo": "CAS-IND",
+    "precio": 8000,
+    "codigo": "ESQ001",
+    "codigo_producto": "ESQ-PSF-CS"
+  },
+  {
+    "nombre": "Casco de Seguridad Anti-impacto",
+    "marca": "SecureGuard",
+    "modelo": "CAS-IMP",
+    "precio": 9500,
+    "codigo": "ESQ002",
+    "codigo_producto": "ESQ-SGG-CS"
+  },
+  {
+    "nombre": "Guantes de Protección Industrial",
+    "marca": "GripMax",
+    "modelo": "GRP-IND",
+    "precio": 3500,
+    "codigo": "ESQ003",
+    "codigo_producto": "ESQ-GMX-GP"
+  },
+  {
+    "nombre": "Guantes de Látex Descartables",
+    "marca": "SafeTouch",
+    "modelo": "LATEX-10",
+    "precio": 1200,
+    "codigo": "ESQ004",
+    "codigo_producto": "ESQ-STX-GD"
+  },
+  {
+    "nombre": "Lentes de Seguridad Antiempañantes",
+    "marca": "VisionPro",
+    "modelo": "LTS-ANT",
+    "precio": 2800,
+    "codigo": "ESQ005",
+    "codigo_producto": "ESQ-VSP-LS"
+  },
+  {
+    "nombre": "Lentes de Protección UV",
+    "marca": "UVShield",
+    "modelo": "LTS-UV",
+    "precio": 4200,
+    "codigo": "ESQ006",
+    "codigo_producto": "ESQ-UVS-LS"
+  },
+  {
+    "nombre": "Botines de Seguridad con Punta de Acero",
+    "marca": "SteelBoot",
+    "modelo": "BOT-ACR",
+    "precio": 13500,
+    "codigo": "ESQ007",
+    "codigo_producto": "ESQ-SBT-BT"
+  },
+  {
+    "nombre": "Rodilleras de Protección Industrial",
+    "marca": "KneeGuard",
+    "modelo": "KGRD-IND",
+    "precio": 4200,
+    "codigo": "ESQ008",
+    "codigo_producto": "ESQ-KGD-KN"
+  },
+  {
+    "nombre": "Chaqueta de Seguridad Reflectante",
+    "marca": "ReflexWear",
+    "modelo": "JCK-REF",
+    "precio": 7800,
+    "codigo": "ESQ009",
+    "codigo_producto": "ESQ-RFW-JC"
+  },
+  {
+    "nombre": "Protector Auditivo de Alta Definición",
+    "marca": "HearSafe",
+    "modelo": "PRO-AUD",
+    "precio": 5200,
+    "codigo": "ESQ010",
+    "codigo_producto": "ESQ-HSF-PA"
+  }
+]

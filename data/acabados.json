@@ -1,0 +1,82 @@
+[
+  {
+    "nombre": "Yeso en Polvo Interior 20kg",
+    "marca": "Yesomax",
+    "modelo": "YPI20",
+    "precio": 4800,
+    "codigo": "ACA001",
+    "codigo_producto": "ACA-YSX-20"
+  },
+  {
+    "nombre": "Estuco Acrílico Blanco 25kg",
+    "marca": "Estucoplast",
+    "modelo": "EAB25",
+    "precio": 6200,
+    "codigo": "ACA002",
+    "codigo_producto": "ACA-ETP-BL"
+  },
+  {
+    "nombre": "Revestimiento Cementicio Exterior",
+    "marca": "Revestek",
+    "modelo": "RCEX30",
+    "precio": 8500,
+    "codigo": "ACA003",
+    "codigo_producto": "ACA-RVK-EX"
+  },
+  {
+    "nombre": "Masilla para Juntas 5kg",
+    "marca": "Masifix",
+    "modelo": "MJ5",
+    "precio": 3500,
+    "codigo": "ACA004",
+    "codigo_producto": "ACA-MFX-J5"
+  },
+  {
+    "nombre": "Texturizado Acrílico Muro",
+    "marca": "TexturaPro",
+    "modelo": "TXACR-MR",
+    "precio": 7800,
+    "codigo": "ACA005",
+    "codigo_producto": "ACA-TXP-MR"
+  },
+  {
+    "nombre": "Enlucido Interior Blanco 20kg",
+    "marca": "Enlucem",
+    "modelo": "EI20",
+    "precio": 5300,
+    "codigo": "ACA006",
+    "codigo_producto": "ACA-ELM-20"
+  },
+  {
+    "nombre": "Mármol en Pasta Decorativa",
+    "marca": "Marmofix",
+    "modelo": "MPD-5L",
+    "precio": 9900,
+    "codigo": "ACA007",
+    "codigo_producto": "ACA-MMF-P5"
+  },
+  {
+    "nombre": "Yeso de Terminación 15kg",
+    "marca": "FinalYeso",
+    "modelo": "YT15",
+    "precio": 4100,
+    "codigo": "ACA008",
+    "codigo_producto": "ACA-FYS-T15"
+  },
+  {
+    "nombre": "Mortero de Revestimiento Fino",
+    "marca": "RevestMax",
+    "modelo": "MRF-30",
+    "precio": 8700,
+    "codigo": "ACA009",
+    "codigo_producto": "ACA-RVM-F30"
+  },
+  {
+    "nombre": "Masilla de Poliuretano 600ml",
+    "marca": "FixSeal",
+    "modelo": "PU600",
+    "precio": 3900,
+    "codigo": "ACA010",
+    "codigo_producto": "ACA-FXS-PU"
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "nombre": "Casco de Seguridad con Visera",
+    "marca": "SecureHead",
+    "modelo": "SH-01",
+    "precio": 4000,
+    "codigo": "CSQ001",
+    "codigo_producto": "CSQ-SHD-SH01"
+  },
+  {
+    "nombre": "Casco de Seguridad Industrial",
+    "marca": "WorkSafe",
+    "modelo": "WS-20",
+    "precio": 3500,
+    "codigo": "CSQ002",
+    "codigo_producto": "CSQ-WSF-WS20"
+  },
+  {
+    "nombre": "Casco Antirruido con Banda Ajustable",
+    "marca": "SilenceCap",
+    "modelo": "SC-15",
+    "precio": 4800,
+    "codigo": "CSQ003",
+    "codigo_producto": "CSQ-SLC-SC15"
+  },
+  {
+    "nombre": "Casco de Seguridad con Ventilación",
+    "marca": "BreezeGuard",
+    "modelo": "BG-12",
+    "precio": 5000,
+    "codigo": "CSQ004",
+    "codigo_producto": "CSQ-BGT-BG12"
+  },
+  {
+    "nombre": "Casco de Seguridad con Protección UV",
+    "marca": "SunGuard",
+    "modelo": "SG-18",
+    "precio": 5500,
+    "codigo": "CSQ005",
+    "codigo_producto": "CSQ-SGR-SG18"
+  },
+  {
+    "nombre": "Casco de Seguridad con Reflectores",
+    "marca": "ReflectSafe",
+    "modelo": "RS-10",
+    "precio": 4700,
+    "codigo": "CSQ006",
+    "codigo_producto": "CSQ-RFS-RS10"
+  },
+  {
+    "nombre": "Casco de Protección Contra Caídas",
+    "marca": "FallShield",
+    "modelo": "FS-25",
+    "precio": 6000,
+    "codigo": "CSQ007",
+    "codigo_producto": "CSQ-FSH-FS25"
+  },
+  {
+    "nombre": "Casco de Seguridad con Visor Desmontable",
+    "marca": "VisorPro",
+    "modelo": "VP-8",
+    "precio": 4800,
+    "codigo": "CSQ008",
+    "codigo_producto": "CSQ-VPR-VP8"
+  },
+  {
+    "nombre": "Casco de Seguridad para Construcción",
+    "marca": "BuildGuard",
+    "modelo": "BG-35",
+    "precio": 5500,
+    "codigo": "CSQ009",
+    "codigo_producto": "CSQ-BGT-BG35"
+  },
+  {
+    "nombre": "Casco de Seguridad Liviano",
+    "marca": "LightShield",
+    "modelo": "LS-05",
+    "precio": 4200,
+    "codigo": "CSQ010",
+    "codigo_producto": "CSQ-LSH-LS05"
+  }
+]

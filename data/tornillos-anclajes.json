@@ -1,0 +1,82 @@
+[
+  {
+    "nombre": "Tornillo de Acero Inoxidable 6x50mm",
+    "marca": "FastFix",
+    "modelo": "TIN-650",
+    "precio": 1200,
+    "codigo": "TAQ001",
+    "codigo_producto": "TAQ-FFX-650"
+  },
+  {
+    "nombre": "Tornillo Autoperforante 4.2x25mm",
+    "marca": "QuickThread",
+    "modelo": "TAQ-425",
+    "precio": 800,
+    "codigo": "TAQ002",
+    "codigo_producto": "TAQ-QTH-425"
+  },
+  {
+    "nombre": "Tornillo de Madera 8x40mm",
+    "marca": "WoodFix",
+    "modelo": "TWM-840",
+    "precio": 1500,
+    "codigo": "TAQ003",
+    "codigo_producto": "TAQ-WDX-840"
+  },
+  {
+    "nombre": "Anclaje de Pared de Plástico 8mm",
+    "marca": "FixWall",
+    "modelo": "AWP-8",
+    "precio": 500,
+    "codigo": "TAQ004",
+    "codigo_producto": "TAQ-FWX-A8"
+  },
+  {
+    "nombre": "Tornillo de Cabeza Roscada 5x30mm",
+    "marca": "BoltPro",
+    "modelo": "TCR-530",
+    "precio": 950,
+    "codigo": "TAQ005",
+    "codigo_producto": "TAQ-BTP-530"
+  },
+  {
+    "nombre": "Anclaje de Expansión para Concreto 10mm",
+    "marca": "ConcreteFix",
+    "modelo": "AEC-10",
+    "precio": 2100,
+    "codigo": "TAQ006",
+    "codigo_producto": "TAQ-CFX-A10"
+  },
+  {
+    "nombre": "Tornillo de Acero para Metal 3.5x20mm",
+    "marca": "MetalFast",
+    "modelo": "TAM-3520",
+    "precio": 600,
+    "codigo": "TAQ007",
+    "codigo_producto": "TAQ-MFS-3520"
+  },
+  {
+    "nombre": "Tornillo de Seguridad Anti-Robo 6x40mm",
+    "marca": "SecureFix",
+    "modelo": "TSA-640",
+    "precio": 2200,
+    "codigo": "TAQ008",
+    "codigo_producto": "TAQ-SFX-SA6"
+  },
+  {
+    "nombre": "Anclaje Químico de 12mm",
+    "marca": "ChemAnchor",
+    "modelo": "ACQ-12",
+    "precio": 3800,
+    "codigo": "TAQ009",
+    "codigo_producto": "TAQ-CAX-C12"
+  },
+  {
+    "nombre": "Tornillo Hexagonal 10x60mm",
+    "marca": "HexaFix",
+    "modelo": "THX-1060",
+    "precio": 1600,
+    "codigo": "TAQ010",
+    "codigo_producto": "TAQ-HFX-H10"
+  }
+]

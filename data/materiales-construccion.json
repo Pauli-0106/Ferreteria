@@ -1,0 +1,82 @@
+[
+  {
+    "nombre": "Cemento Portland 42.5R",
+    "marca": "Cemex",
+    "modelo": "CP-42.5R",
+    "precio": 4500,
+    "codigo": "MCC001",
+    "codigo_producto": "MCC-CMX-42.5R"
+  },
+  {
+    "nombre": "Arena Gruesa para Construcción",
+    "marca": "ArenaPro",
+    "modelo": "AG-01",
+    "precio": 1200,
+    "codigo": "MCC002",
+    "codigo_producto": "MCC-APR-AG01"
+  },
+  {
+    "nombre": "Ladrillo Común 25x12x6cm",
+    "marca": "Ladrillos La Roja",
+    "modelo": "LDR-25X12",
+    "precio": 350,
+    "codigo": "MCC003",
+    "codigo_producto": "MCC-LDR-25X12"
+  },
+  {
+    "nombre": "Piedra Picada para Cemento",
+    "marca": "RockMaster",
+    "modelo": "PRC-25",
+    "precio": 1500,
+    "codigo": "MCC004",
+    "codigo_producto": "MCC-RMT-PRC25"
+  },
+  {
+    "nombre": "Bloques de Hormigón 40x20x20cm",
+    "marca": "SolidBlock",
+    "modelo": "HB-402020",
+    "precio": 2500,
+    "codigo": "MCC005",
+    "codigo_producto": "MCC-SBL-HB402020"
+  },
+  {
+    "nombre": "Varilla de Acero 3/8\"",
+    "marca": "SteelFlex",
+    "modelo": "VAR-3/8",
+    "precio": 300,
+    "codigo": "MCC006",
+    "codigo_producto": "MCC-SFX-VAR38"
+  },
+  {
+    "nombre": "Teja Asfáltica para Techos",
+    "marca": "RoofMaster",
+    "modelo": "TA-10",
+    "precio": 3200,
+    "codigo": "MCC007",
+    "codigo_producto": "MCC-RMT-TA10"
+  },
+  {
+    "nombre": "Yeso para Revestimiento",
+    "marca": "PlasterPro",
+    "modelo": "YES-01",
+    "precio": 2200,
+    "codigo": "MCC008",
+    "codigo_producto": "MCC-PPT-YES01"
+  },
+  {
+    "nombre": "Cemento Rápido 30kg",
+    "marca": "QuickCem",
+    "modelo": "CR-30KG",
+    "precio": 5400,
+    "codigo": "MCC009",
+    "codigo_producto": "MCC-QCM-CR30KG"
+  },
+  {
+    "nombre": "Madera para Encofrado 2m",
+    "marca": "WoodMaster",
+    "modelo": "MF-2M",
+    "precio": 8000,
+    "codigo": "MCC010",
+    "codigo_producto": "MCC-WMT-MF2M"
+  }
+]

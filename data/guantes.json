@@ -1,0 +1,82 @@
+[
+  {
+    "nombre": "Guantes de Protección Industrial",
+    "marca": "SafeHands",
+    "modelo": "SH-100",
+    "precio": 1200,
+    "codigo": "GSQ001",
+    "codigo_producto": "GSQ-SHD-SH100"
+  },
+  {
+    "nombre": "Guantes Anticorte",
+    "marca": "CutGuard",
+    "modelo": "CG-200",
+    "precio": 1800,
+    "codigo": "GSQ002",
+    "codigo_producto": "GSQ-CGT-CG200"
+  },
+  {
+    "nombre": "Guantes de Cuero para Trabajo Pesado",
+    "marca": "LeatherWork",
+    "modelo": "LW-10",
+    "precio": 2500,
+    "codigo": "GSQ003",
+    "codigo_producto": "GSQ-LWK-LW10"
+  },
+  {
+    "nombre": "Guantes de Protección para Soldadores",
+    "marca": "ArcSafe",
+    "modelo": "AS-300",
+    "precio": 3500,
+    "codigo": "GSQ004",
+    "codigo_producto": "GSQ-ARC-AS300"
+  },
+  {
+    "nombre": "Guantes de Látex para Manejo de Productos Químicos",
+    "marca": "ChemGuard",
+    "modelo": "CG-50",
+    "precio": 1500,
+    "codigo": "GSQ005",
+    "codigo_producto": "GSQ-CGM-CG50"
+  },
+  {
+    "nombre": "Guantes Antideslizantes de Nitrilo",
+    "marca": "GripTech",
+    "modelo": "GT-500",
+    "precio": 2200,
+    "codigo": "GSQ006",
+    "codigo_producto": "GSQ-GTT-GT500"
+  },
+  {
+    "nombre": "Guantes de Protección para Maniobras",
+    "marca": "GripSafe",
+    "modelo": "GS-200",
+    "precio": 1800,
+    "codigo": "GSQ007",
+    "codigo_producto": "GSQ-GSP-GS200"
+  },
+  {
+    "nombre": "Guantes de Protección para Manejo de Materiales",
+    "marca": "WorkGrip",
+    "modelo": "WG-350",
+    "precio": 2000,
+    "codigo": "GSQ008",
+    "codigo_producto": "GSQ-WGP-WG350"
+  },
+  {
+    "nombre": "Guantes de Alta Visibilidad",
+    "marca": "VisiSafe",
+    "modelo": "VS-100",
+    "precio": 2300,
+    "codigo": "GSQ009",
+    "codigo_producto": "GSQ-VST-VS100"
+  },
+  {
+    "nombre": "Guantes Impermeables de PVC",
+    "marca": "WaterGuard",
+    "modelo": "WG-500",
+    "precio": 2700,
+    "codigo": "GSQ010",
+    "codigo_producto": "GSQ-WGP-WG500"
+  }
+]

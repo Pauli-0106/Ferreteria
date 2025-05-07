@@ -1,0 +1,82 @@
+[
+  {
+    "nombre": "Llave Ajustable 10\"",
+    "marca": "FlexiTool",
+    "modelo": "KA-10",
+    "precio": 2500,
+    "codigo": "LQ001",
+    "codigo_producto": "LQ-FXT-KA10"
+  },
+  {
+    "nombre": "Llave de Tubo 12mm",
+    "marca": "PipeMaster",
+    "modelo": "KT-12",
+    "precio": 1500,
+    "codigo": "LQ002",
+    "codigo_producto": "LQ-PMT-KT12"
+  },
+  {
+    "nombre": "Llave de Cr-V 18mm",
+    "marca": "SteelForce",
+    "modelo": "KC-18",
+    "precio": 3200,
+    "codigo": "LQ003",
+    "codigo_producto": "LQ-SFR-KC18"
+  },
+  {
+    "nombre": "Llave Combinada 19mm",
+    "marca": "MechanicPro",
+    "modelo": "KC-19",
+    "precio": 2200,
+    "codigo": "LQ004",
+    "codigo_producto": "LQ-MCP-KC19"
+  },
+  {
+    "nombre": "Llave de Impacto 1/2\" 500Nm",
+    "marca": "ImpactMaster",
+    "modelo": "KI-500",
+    "precio": 7200,
+    "codigo": "LQ005",
+    "codigo_producto": "LQ-IMP-KI500"
+  },
+  {
+    "nombre": "Llave de Ajuste Rápido 8\"",
+    "marca": "QuickFix",
+    "modelo": "KAQ-8",
+    "precio": 1800,
+    "codigo": "LQ006",
+    "codigo_producto": "LQ-QFX-KAQ8"
+  },
+  {
+    "nombre": "Llave de Grifo 22mm",
+    "marca": "PlumbingPro",
+    "modelo": "KG-22",
+    "precio": 2600,
+    "codigo": "LQ007",
+    "codigo_producto": "LQ-PLM-KG22"
+  },
+  {
+    "nombre": "Llave para Tornillos 13mm",
+    "marca": "ScrewMaster",
+    "modelo": "KT-13",
+    "precio": 1400,
+    "codigo": "LQ008",
+    "codigo_producto": "LQ-SCM-KT13"
+  },
+  {
+    "nombre": "Llave de Boca 21mm",
+    "marca": "HeavyTorque",
+    "modelo": "KB-21",
+    "precio": 3000,
+    "codigo": "LQ009",
+    "codigo_producto": "LQ-HTQ-KB21"
+  },
+  {
+    "nombre": "Llave de Encaje Rápido 25mm",
+    "marca": "FastFix",
+    "modelo": "KF-25",
+    "precio": 3400,
+    "codigo": "LQ010",
+    "codigo_producto": "LQ-FTX-KF25"
+  }
+]

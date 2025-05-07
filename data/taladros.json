@@ -1,0 +1,82 @@
+[
+  {
+    "nombre": "Taladro de Percusión 750W",
+    "marca": "DrillPro",
+    "modelo": "DP-750P",
+    "precio": 10500,
+    "codigo": "TEQ001",
+    "codigo_producto": "TEQ-DRP-750P"
+  },
+  {
+    "nombre": "Taladro Inalámbrico 18V",
+    "marca": "PowerDrill",
+    "modelo": "PD-18V",
+    "precio": 9800,
+    "codigo": "TEQ002",
+    "codigo_producto": "TEQ-PDR-18V"
+  },
+  {
+    "nombre": "Taladro Percutor 13mm 950W",
+    "marca": "MaxDrill",
+    "modelo": "MDP-13",
+    "precio": 11500,
+    "codigo": "TEQ003",
+    "codigo_producto": "TEQ-MDR-13"
+  },
+  {
+    "nombre": "Taladro de Banco 500W",
+    "marca": "BenchDrill",
+    "modelo": "BD-500",
+    "precio": 8500,
+    "codigo": "TEQ004",
+    "codigo_producto": "TEQ-BDR-500"
+  },
+  {
+    "nombre": "Taladro Rotativo 800W",
+    "marca": "VortexPro",
+    "modelo": "TR-800",
+    "precio": 9000,
+    "codigo": "TEQ005",
+    "codigo_producto": "TEQ-VPR-800"
+  },
+  {
+    "nombre": "Taladro Combinado 2 Velocidades 650W",
+    "marca": "DualDrive",
+    "modelo": "DD-650",
+    "precio": 7200,
+    "codigo": "TEQ006",
+    "codigo_producto": "TEQ-DDR-650"
+  },
+  {
+    "nombre": "Taladro a Batería 12V",
+    "marca": "MiniDrill",
+    "modelo": "MD-12V",
+    "precio": 6800,
+    "codigo": "TEQ007",
+    "codigo_producto": "TEQ-MDR-12V"
+  },
+  {
+    "nombre": "Taladro de Percusión 18V",
+    "marca": "PowerHammer",
+    "modelo": "PH-18V",
+    "precio": 10600,
+    "codigo": "TEQ008",
+    "codigo_producto": "TEQ-PHR-18V"
+  },
+  {
+    "nombre": "Taladro de Impacto 1200W",
+    "marca": "ImpactMaster",
+    "modelo": "IM-1200",
+    "precio": 14500,
+    "codigo": "TEQ009",
+    "codigo_producto": "TEQ-IMP-1200"
+  },
+  {
+    "nombre": "Taladro Inalámbrico Compacto 10.8V",
+    "marca": "CompactDrill",
+    "modelo": "CD-10V",
+    "precio": 7400,
+    "codigo": "TEQ010",
+    "codigo_producto": "TEQ-CDR-10V"
+  }
+]

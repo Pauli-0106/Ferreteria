@@ -1,0 +1,142 @@
+[
+  {
+    "nombre": "Barniz Marino Transparente 1L",
+    "marca": "Barnilux",
+    "modelo": "MAR-TR1L",
+    "codigo": "BAR001",
+    "codigo_producto": "BAR-BNL-M1",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 6700
+      }
+    ],
+    "stock": 60
+  },
+  {
+    "nombre": "Barniz Sintético Alto Brillo 4L",
+    "marca": "Brillawood",
+    "modelo": "SINT-AB4L",
+    "codigo": "BAR002",
+    "codigo_producto": "BAR-BRW-AB",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 9800
+      }
+    ],
+    "stock": 47
+  },
+  {
+    "nombre": "Barniz Poliuretano Roble 1L",
+    "marca": "MaderSeal",
+    "modelo": "POL-RB1L",
+    "codigo": "BAR003",
+    "codigo_producto": "BAR-MDS-R1",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 7200
+      }
+    ],
+    "stock": 53
+  },
+  {
+    "nombre": "Barniz Nitrocelulósico Incoloro",
+    "marca": "NitroPro",
+    "modelo": "NC-INC",
+    "codigo": "BAR004",
+    "codigo_producto": "BAR-NTP-IC",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 7500
+      }
+    ],
+    "stock": 39
+  },
+  {
+    "nombre": "Barniz Mate Natural 5L",
+    "marca": "EcoWood",
+    "modelo": "MAT-NAT5L",
+    "codigo": "BAR005",
+    "codigo_producto": "BAR-EWD-M5",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 9600
+      }
+    ],
+    "stock": 26
+  },
+  {
+    "nombre": "Barniz al Agua Cedro 4L",
+    "marca": "AquaBarn",
+    "modelo": "AW-CED4L",
+    "codigo": "BAR006",
+    "codigo_producto": "BAR-AQB-C4",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 8800
+      }
+    ],
+    "stock": 44
+  },
+  {
+    "nombre": "Barniz para Piso de Madera 3.6L",
+    "marca": "PisoPro",
+    "modelo": "PIS-MD3L",
+    "codigo": "BAR007",
+    "codigo_producto": "BAR-PSP-M3",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 11400
+      }
+    ],
+    "stock": 38
+  },
+  {
+    "nombre": "Barniz Protector UV Exterior",
+    "marca": "UVShield",
+    "modelo": "EXT-UV",
+    "codigo": "BAR008",
+    "codigo_producto": "BAR-UVS-EX",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 10200
+      }
+    ],
+    "stock": 51
+  },
+  {
+    "nombre": "Barniz en Spray Acabado Satinado",
+    "marca": "SprayFinish",
+    "modelo": "SPF-SAT",
+    "codigo": "BAR009",
+    "codigo_producto": "BAR-SPF-ST",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5400
+      }
+    ],
+    "stock": 70
+  },
+  {
+    "nombre": "Barniz Tinte Caoba 1L",
+    "marca": "ColorBarn",
+    "modelo": "TNT-CBH1L",
+    "codigo": "BAR010",
+    "codigo_producto": "BAR-CLB-CB",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 6900
+      }
+    ],
+    "stock": 58
+  }
+]

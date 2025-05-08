@@ -5,7 +5,12 @@
     "modelo": "TIN-650",
     "precio": 1200,
     "codigo": "TAQ001",
-    "codigo_producto": "TAQ-FFX-650"
+    "codigo_producto": "TAQ-FFX-650",
+    "stock": 500,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Tornillo Autoperforante 4.2x25mm",
@@ -13,7 +18,12 @@
     "modelo": "TAQ-425",
     "precio": 800,
     "codigo": "TAQ002",
-    "codigo_producto": "TAQ-QTH-425"
+    "codigo_producto": "TAQ-QTH-425",
+    "stock": 750,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Tornillo de Madera 8x40mm",
@@ -21,7 +31,12 @@
     "modelo": "TWM-840",
     "precio": 1500,
     "codigo": "TAQ003",
-    "codigo_producto": "TAQ-WDX-840"
+    "codigo_producto": "TAQ-WDX-840",
+    "stock": 300,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Anclaje de Pared de Plástico 8mm",
@@ -29,7 +44,12 @@
     "modelo": "AWP-8",
     "precio": 500,
     "codigo": "TAQ004",
-    "codigo_producto": "TAQ-FWX-A8"
+    "codigo_producto": "TAQ-FWX-A8",
+    "stock": 1000,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Tornillo de Cabeza Roscada 5x30mm",
@@ -37,7 +57,12 @@
     "modelo": "TCR-530",
     "precio": 950,
     "codigo": "TAQ005",
-    "codigo_producto": "TAQ-BTP-530"
+    "codigo_producto": "TAQ-BTP-530",
+    "stock": 400,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Anclaje de Expansión para Concreto 10mm",
@@ -45,7 +70,12 @@
     "modelo": "AEC-10",
     "precio": 2100,
     "codigo": "TAQ006",
-    "codigo_producto": "TAQ-CFX-A10"
+    "codigo_producto": "TAQ-CFX-A10",
+    "stock": 250,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Tornillo de Acero para Metal 3.5x20mm",
@@ -53,7 +83,12 @@
     "modelo": "TAM-3520",
     "precio": 600,
     "codigo": "TAQ007",
-    "codigo_producto": "TAQ-MFS-3520"
+    "codigo_producto": "TAQ-MFS-3520",
+    "stock": 800,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Tornillo de Seguridad Anti-Robo 6x40mm",
@@ -61,7 +96,12 @@
     "modelo": "TSA-640",
     "precio": 2200,
     "codigo": "TAQ008",
-    "codigo_producto": "TAQ-SFX-SA6"
+    "codigo_producto": "TAQ-SFX-SA6",
+    "stock": 150,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Anclaje Químico de 12mm",
@@ -69,7 +109,12 @@
     "modelo": "ACQ-12",
     "precio": 3800,
     "codigo": "TAQ009",
-    "codigo_producto": "TAQ-CAX-C12"
+    "codigo_producto": "TAQ-CAX-C12",
+    "stock": 80,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Tornillo Hexagonal 10x60mm",
@@ -77,6 +122,11 @@
     "modelo": "THX-1060",
     "precio": 1600,
     "codigo": "TAQ010",
-    "codigo_producto": "TAQ-HFX-H10"
+    "codigo_producto": "TAQ-HFX-H10",
+    "stock": 450,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   }
 ]

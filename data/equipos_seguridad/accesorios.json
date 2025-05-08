@@ -1,0 +1,58 @@
+[
+  {
+    "nombre": "Cinta Métrica 5m",
+    "marca": "TapeMaster",
+    "modelo": "TM-5",
+    "codigo": "AVQ001",
+    "codigo_producto": "AVQ-TMM-TM5",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1200
+      }
+    ],
+    "stock": 85
+  },
+  {
+    "nombre": "Linterna LED Recargable",
+    "marca": "BrightLight",
+    "modelo": "BL-600",
+    "codigo": "AVQ002",
+    "codigo_producto": "AVQ-BLT-BL600",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3000
+      }
+    ],
+    "stock": 50
+  },
+  {
+    "nombre": "Caja de Herramientas de Plástico",
+    "marca": "ToolBoxPro",
+    "modelo": "TBP-15",
+    "codigo": "AVQ003",
+    "codigo_producto": "AVQ-TBP-TBP15",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1500
+      }
+    ],
+    "stock": 72
+  },
+  {
+    "nombre": "Guía Laser para Cortes",
+    "marca": "LaserGuide",
+    "modelo": "LG-100",
+    "codigo": "AVQ004",
+    "codigo_producto": "AVQ-LGT-LG100",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5000
+      }
+    ],
+    "stock": 41
+  }
+]

@@ -1,0 +1,142 @@
+[
+  {
+    "nombre": "Ladrillo Fiscal 24x12x7 cm",
+    "marca": "Ladrillera Sur",
+    "modelo": "LF24127",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 350
+      }
+    ],
+    "codigo": "LAD001",
+    "codigo_producto": "LAD-SUR-FIS",
+    "stock": 500
+  },
+  {
+    "nombre": "Ladrillo Refractario Alta Temperatura",
+    "marca": "Termobrick",
+    "modelo": "TR-HT",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 950
+      }
+    ],
+    "codigo": "LAD002",
+    "codigo_producto": "LAD-TBK-HT",
+    "stock": 300
+  },
+  {
+    "nombre": "Ladrillo King Kong 30x15x10 cm",
+    "marca": "Bloques Chile",
+    "modelo": "KK301510",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 420
+      }
+    ],
+    "codigo": "LAD003",
+    "codigo_producto": "LAD-BCH-KK",
+    "stock": 450
+  },
+  {
+    "nombre": "Ladrillo Perforado 25x12x9 cm",
+    "marca": "BrickMax",
+    "modelo": "PF25129",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 310
+      }
+    ],
+    "codigo": "LAD004",
+    "codigo_producto": "LAD-BMX-PF",
+    "stock": 600
+  },
+  {
+    "nombre": "Ladrillo Hueco Ligero",
+    "marca": "Estructural",
+    "modelo": "HUE-LG",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 370
+      }
+    ],
+    "codigo": "LAD005",
+    "codigo_producto": "LAD-EST-LG",
+    "stock": 550
+  },
+  {
+    "nombre": "Ladrillo Decorativo Rojo",
+    "marca": "DecoBlock",
+    "modelo": "DEC-RJ",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 680
+      }
+    ],
+    "codigo": "LAD006",
+    "codigo_producto": "LAD-DCB-RJ",
+    "stock": 200
+  },
+  {
+    "nombre": "Ladrillo de Arcilla Natural",
+    "marca": "Terracota",
+    "modelo": "ARC-NAT",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 590
+      }
+    ],
+    "codigo": "LAD007",
+    "codigo_producto": "LAD-TCT-ARC",
+    "stock": 300
+  },
+  {
+    "nombre": "Ladrillo de Muro 29x14x9 cm",
+    "marca": "Murosol",
+    "modelo": "MUR29149",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 390
+      }
+    ],
+    "codigo": "LAD008",
+    "codigo_producto": "LAD-MRS-ML",
+    "stock": 400
+  },
+  {
+    "nombre": "Ladrillo para Piso Texturado",
+    "marca": "PaveStyle",
+    "modelo": "PAV-TX",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 770
+      }
+    ],
+    "codigo": "LAD009",
+    "codigo_producto": "LAD-PVS-TX",
+    "stock": 250
+  },
+  {
+    "nombre": "Ladrillo Termoacústico",
+    "marca": "EcoBlock",
+    "modelo": "TAC-01",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 880
+      }
+    ],
+    "codigo": "LAD010",
+    "codigo_producto": "LAD-ECB-TAC",
+    "stock": 180
+  }
+]

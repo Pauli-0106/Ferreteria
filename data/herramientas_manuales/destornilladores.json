@@ -1,0 +1,142 @@
+[
+  {
+    "nombre": "Destornillador Phillips 6\"",
+    "marca": "GripFix",
+    "modelo": "DP-6",
+    "codigo": "DEQ001",
+    "codigo_producto": "DEQ-GFX-DP6",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1200
+      }
+    ],
+    "stock": 120
+  },
+  {
+    "nombre": "Destornillador Plano 5\"",
+    "marca": "ToolPro",
+    "modelo": "DP-5",
+    "codigo": "DEQ002",
+    "codigo_producto": "DEQ-TPR-DP5",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1100
+      }
+    ],
+    "stock": 135
+  },
+  {
+    "nombre": "Destornillador Estrella 4\"",
+    "marca": "StarFix",
+    "modelo": "DS-4",
+    "codigo": "DEQ003",
+    "codigo_producto": "DEQ-SFX-DS4",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1300
+      }
+    ],
+    "stock": 128
+  },
+  {
+    "nombre": "Destornillador Eléctrico 12V",
+    "marca": "PowerDriver",
+    "modelo": "DE-12V",
+    "codigo": "DEQ004",
+    "codigo_producto": "DEQ-PDR-DE12V",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5800
+      }
+    ],
+    "stock": 52
+  },
+  {
+    "nombre": "Destornillador de Precisión 3\"",
+    "marca": "PrecisionPro",
+    "modelo": "DP-3",
+    "codigo": "DEQ005",
+    "codigo_producto": "DEQ-PRP-DP3",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 900
+      }
+    ],
+    "stock": 145
+  },
+  {
+    "nombre": "Destornillador Inalámbrico 18V",
+    "marca": "CordlessFix",
+    "modelo": "CF-18V",
+    "codigo": "DEQ006",
+    "codigo_producto": "DEQ-CFX-CF18V",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 8500
+      }
+    ],
+    "stock": 39
+  },
+  {
+    "nombre": "Destornillador Magnético 7\"",
+    "marca": "MagnetFix",
+    "modelo": "DM-7",
+    "codigo": "DEQ007",
+    "codigo_producto": "DEQ-MFT-DM7",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2000
+      }
+    ],
+    "stock": 95
+  },
+  {
+    "nombre": "Destornillador de Impacto 900W",
+    "marca": "ImpactForce",
+    "modelo": "DI-900",
+    "codigo": "DEQ008",
+    "codigo_producto": "DEQ-IFR-DI900",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 7200
+      }
+    ],
+    "stock": 45
+  },
+  {
+    "nombre": "Destornillador Bivolt 10V",
+    "marca": "VoltFix",
+    "modelo": "DV-10V",
+    "codigo": "DEQ009",
+    "codigo_producto": "DEQ-VFT-DV10V",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 6200
+      }
+    ],
+    "stock": 50
+  },
+  {
+    "nombre": "Destornillador 2 en 1 Plano/Phillips",
+    "marca": "DualFix",
+    "modelo": "DP-2IN1",
+    "codigo": "DEQ010",
+    "codigo_producto": "DEQ-DFX-DP2IN1",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1500
+      }
+    ],
+    "stock": 110
+  }
+]

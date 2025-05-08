@@ -1,0 +1,142 @@
+[
+  {
+    "nombre": "Yeso en Polvo Interior 20kg",
+    "marca": "Yesomax",
+    "modelo": "YPI20",
+    "codigo": "ACA001",
+    "codigo_producto": "ACA-YSX-20",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4800
+      }
+    ],
+    "stock": 75
+  },
+  {
+    "nombre": "Estuco Acrílico Blanco 25kg",
+    "marca": "Estucoplast",
+    "modelo": "EAB25",
+    "codigo": "ACA002",
+    "codigo_producto": "ACA-ETP-BL",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 6200
+      }
+    ],
+    "stock": 60
+  },
+  {
+    "nombre": "Revestimiento Cementicio Exterior",
+    "marca": "Revestek",
+    "modelo": "RCEX30",
+    "codigo": "ACA003",
+    "codigo_producto": "ACA-RVK-EX",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 8500
+      }
+    ],
+    "stock": 40
+  },
+  {
+    "nombre": "Masilla para Juntas 5kg",
+    "marca": "Masifix",
+    "modelo": "MJ5",
+    "codigo": "ACA004",
+    "codigo_producto": "ACA-MFX-J5",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3500
+      }
+    ],
+    "stock": 80
+  },
+  {
+    "nombre": "Texturizado Acrílico Muro",
+    "marca": "TexturaPro",
+    "modelo": "TXACR-MR",
+    "codigo": "ACA005",
+    "codigo_producto": "ACA-TXP-MR",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 7800
+      }
+    ],
+    "stock": 45
+  },
+  {
+    "nombre": "Enlucido Interior Blanco 20kg",
+    "marca": "Enlucem",
+    "modelo": "EI20",
+    "codigo": "ACA006",
+    "codigo_producto": "ACA-ELM-20",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5300
+      }
+    ],
+    "stock": 68
+  },
+  {
+    "nombre": "Mármol en Pasta Decorativa",
+    "marca": "Marmofix",
+    "modelo": "MPD-5L",
+    "codigo": "ACA007",
+    "codigo_producto": "ACA-MMF-P5",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 9900
+      }
+    ],
+    "stock": 55
+  },
+  {
+    "nombre": "Yeso de Terminación 15kg",
+    "marca": "FinalYeso",
+    "modelo": "YT15",
+    "codigo": "ACA008",
+    "codigo_producto": "ACA-FYS-T15",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4100
+      }
+    ],
+    "stock": 92
+  },
+  {
+    "nombre": "Mortero de Revestimiento Fino",
+    "marca": "RevestMax",
+    "modelo": "MRF-30",
+    "codigo": "ACA009",
+    "codigo_producto": "ACA-RVM-F30",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 8700
+      }
+    ],
+    "stock": 36
+  },
+  {
+    "nombre": "Masilla de Poliuretano 600ml",
+    "marca": "FixSeal",
+    "modelo": "PU600",
+    "codigo": "ACA010",
+    "codigo_producto": "ACA-FXS-PU",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3900
+      }
+    ],
+    "stock": 70
+  }
+]

@@ -5,7 +5,12 @@
     "modelo": "CS-1600",
     "precio": 15800,
     "codigo": "SEQ001",
-    "codigo_producto": "SEQ-CPR-1600"
+    "codigo_producto": "SEQ-CPR-1600",
+    "stock": 150,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Sierra de Calar 550W",
@@ -13,7 +18,12 @@
     "modelo": "JSM-550",
     "precio": 6400,
     "codigo": "SEQ002",
-    "codigo_producto": "SEQ-JSM-550"
+    "codigo_producto": "SEQ-JSM-550",
+    "stock": 250,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Sierra de Inglete 2000W",
@@ -21,7 +31,12 @@
     "modelo": "IC-2000",
     "precio": 25000,
     "codigo": "SEQ003",
-    "codigo_producto": "SEQ-ANC-2000"
+    "codigo_producto": "SEQ-ANC-2000",
+    "stock": 100,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Sierra de Banda 700W",
@@ -29,7 +44,12 @@
     "modelo": "BC-700",
     "precio": 8900,
     "codigo": "SEQ004",
-    "codigo_producto": "SEQ-BCT-700"
+    "codigo_producto": "SEQ-BCT-700",
+    "stock": 200,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Sierra Circular 235mm 2200W",
@@ -37,7 +57,12 @@
     "modelo": "MC-2200",
     "precio": 30000,
     "codigo": "SEQ005",
-    "codigo_producto": "SEQ-MCT-2200"
+    "codigo_producto": "SEQ-MCT-2200",
+    "stock": 50,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Sierra de Mano 500mm",
@@ -45,7 +70,12 @@
     "modelo": "HM-500",
     "precio": 3000,
     "codigo": "SEQ006",
-    "codigo_producto": "SEQ-HCT-500"
+    "codigo_producto": "SEQ-HCT-500",
+    "stock": 500,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Sierra de Calar Profesional 600W",
@@ -53,7 +83,12 @@
     "modelo": "PJS-600",
     "precio": 7500,
     "codigo": "SEQ007",
-    "codigo_producto": "SEQ-PJS-600"
+    "codigo_producto": "SEQ-PJS-600",
+    "stock": 180,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Sierra de Inglete Compacta 1800W",
@@ -61,7 +96,12 @@
     "modelo": "IM-1800",
     "precio": 23000,
     "codigo": "SEQ008",
-    "codigo_producto": "SEQ-AMS-1800"
+    "codigo_producto": "SEQ-AMS-1800",
+    "stock": 120,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Sierra de Corte 350mm 3000W",
@@ -69,7 +109,12 @@
     "modelo": "PS-3500",
     "precio": 35000,
     "codigo": "SEQ009",
-    "codigo_producto": "SEQ-PSW-3500"
+    "codigo_producto": "SEQ-PSW-3500",
+    "stock": 70,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Sierra de Disco 160mm 800W",
@@ -77,6 +122,11 @@
     "modelo": "MC-1600",
     "precio": 8500,
     "codigo": "SEQ010",
-    "codigo_producto": "SEQ-MCT-1600"
+    "codigo_producto": "SEQ-MCT-1600",
+    "stock": 250,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   }
 ]

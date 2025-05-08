@@ -1,0 +1,142 @@
+[
+  {
+    "nombre": "Nivel Láser de Precisión 360°",
+    "marca": "LaserMaster",
+    "modelo": "LVL-360",
+    "codigo": "EMQ001",
+    "codigo_producto": "EMQ-LMS-360",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 12500
+      }
+    ],
+    "stock": 45
+  },
+  {
+    "nombre": "Medidor de Distancia Láser 50m",
+    "marca": "DistPro",
+    "modelo": "MDL-50",
+    "codigo": "EMQ002",
+    "codigo_producto": "EMQ-DPT-50",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4800
+      }
+    ],
+    "stock": 80
+  },
+  {
+    "nombre": "Cinta Métrica de Acero 5m",
+    "marca": "TapeMaster",
+    "modelo": "CMA-5",
+    "codigo": "EMQ003",
+    "codigo_producto": "EMQ-TMS-5",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1200
+      }
+    ],
+    "stock": 150
+  },
+  {
+    "nombre": "Termómetro Digital Infrarrojo",
+    "marca": "HeatScan",
+    "modelo": "THM-IR",
+    "codigo": "EMQ004",
+    "codigo_producto": "EMQ-HST-IR",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3500
+      }
+    ],
+    "stock": 65
+  },
+  {
+    "nombre": "Multímetro Digital 600V",
+    "marca": "VoltMaster",
+    "modelo": "MTD-600",
+    "codigo": "EMQ005",
+    "codigo_producto": "EMQ-VMT-600",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 6700
+      }
+    ],
+    "stock": 50
+  },
+  {
+    "nombre": "Calibrador Vernier 150mm",
+    "marca": "PreciseMeasure",
+    "modelo": "CV-150",
+    "codigo": "EMQ006",
+    "codigo_producto": "EMQ-PMR-150",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2200
+      }
+    ],
+    "stock": 110
+  },
+  {
+    "nombre": "Medidor de Humedad Digital",
+    "marca": "MoisturePro",
+    "modelo": "MDH-DIGI",
+    "codigo": "EMQ007",
+    "codigo_producto": "EMQ-MST-DG",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4200
+      }
+    ],
+    "stock": 95
+  },
+  {
+    "nombre": "Manómetro Digital para Gas",
+    "marca": "GasCheck",
+    "modelo": "MND-GAS",
+    "codigo": "EMQ008",
+    "codigo_producto": "EMQ-GCX-MD",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5600
+      }
+    ],
+    "stock": 70
+  },
+  {
+    "nombre": "Termómetro para Superficies 100-500°C",
+    "marca": "TempScan",
+    "modelo": "TMP-SURF",
+    "codigo": "EMQ009",
+    "codigo_producto": "EMQ-TSN-SF",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 8500
+      }
+    ],
+    "stock": 40
+  },
+  {
+    "nombre": "Medidor de Presión 0-10 bar",
+    "marca": "PressurePro",
+    "modelo": "MP-10B",
+    "codigo": "EMQ010",
+    "codigo_producto": "EMQ-PRP-10B",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3300
+      }
+    ],
+    "stock": 120
+  }
+]

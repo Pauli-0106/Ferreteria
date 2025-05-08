@@ -1,0 +1,142 @@
+[
+  {
+    "nombre": "Lijadora Orbital 200W",
+    "marca": "SmoothPro",
+    "modelo": "LO-200",
+    "codigo": "LEQ001",
+    "codigo_producto": "LEQ-SPR-200",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4900
+      }
+    ],
+    "stock": 60
+  },
+  {
+    "nombre": "Lijadora de Banda 750W",
+    "marca": "BeltMaster",
+    "modelo": "LB-750",
+    "codigo": "LEQ002",
+    "codigo_producto": "LEQ-BMT-750",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 8500
+      }
+    ],
+    "stock": 40
+  },
+  {
+    "nombre": "Lijadora Excéntrica 1200W",
+    "marca": "Excentra",
+    "modelo": "LE-1200",
+    "codigo": "LEQ003",
+    "codigo_producto": "LEQ-EXT-1200",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 11500
+      }
+    ],
+    "stock": 30
+  },
+  {
+    "nombre": "Lijadora de Detalle 180W",
+    "marca": "DetailPro",
+    "modelo": "LD-180",
+    "codigo": "LEQ004",
+    "codigo_producto": "LEQ-DPT-180",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3200
+      }
+    ],
+    "stock": 50
+  },
+  {
+    "nombre": "Lijadora de Piso 1500W",
+    "marca": "FloorMaster",
+    "modelo": "LP-1500",
+    "codigo": "LEQ005",
+    "codigo_producto": "LEQ-FMT-1500",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 22000
+      }
+    ],
+    "stock": 20
+  },
+  {
+    "nombre": "Lijadora Orbital con Regulador 250W",
+    "marca": "ReguLij",
+    "modelo": "LO-250R",
+    "codigo": "LEQ006",
+    "codigo_producto": "LEQ-RGL-250",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5800
+      }
+    ],
+    "stock": 70
+  },
+  {
+    "nombre": "Lijadora de Banda Compacta 650W",
+    "marca": "CompactBelt",
+    "modelo": "LB-650C",
+    "codigo": "LEQ007",
+    "codigo_producto": "LEQ-CBT-650",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4500
+      }
+    ],
+    "stock": 80
+  },
+  {
+    "nombre": "Lijadora Orbital 500W",
+    "marca": "PowerSmooth",
+    "modelo": "LO-500",
+    "codigo": "LEQ008",
+    "codigo_producto": "LEQ-PSM-500",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 7200
+      }
+    ],
+    "stock": 50
+  },
+  {
+    "nombre": "Lijadora de Cinta 1000W",
+    "marca": "CintaPro",
+    "modelo": "LC-1000",
+    "codigo": "LEQ009",
+    "codigo_producto": "LEQ-CPT-1000",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 8900
+      }
+    ],
+    "stock": 40
+  },
+  {
+    "nombre": "Lijadora de Detalle y Multilijado 230W",
+    "marca": "MultiLij",
+    "modelo": "LD-230M",
+    "codigo": "LEQ010",
+    "codigo_producto": "LEQ-MLJ-230",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3700
+      }
+    ],
+    "stock": 60
+  }
+]

@@ -1,0 +1,142 @@
+[
+  {
+    "nombre": "Adhesivo de Contacto 500g",
+    "marca": "FixPro",
+    "modelo": "ADH-CON500",
+    "codigo": "FAQ001",
+    "codigo_producto": "FAQ-FXP-500",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2400
+      }
+    ],
+    "stock": 100
+  },
+  {
+    "nombre": "Cinta Doble Cara 1.5cm x 10m",
+    "marca": "StickPro",
+    "modelo": "CDA-1015",
+    "codigo": "FAQ002",
+    "codigo_producto": "FAQ-STP-1015",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1200
+      }
+    ],
+    "stock": 200
+  },
+  {
+    "nombre": "Pegamento Rápido para Plástico 50g",
+    "marca": "QuickFix",
+    "modelo": "PEG-PLS50",
+    "codigo": "FAQ003",
+    "codigo_producto": "FAQ-QFX-PL50",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1800
+      }
+    ],
+    "stock": 150
+  },
+  {
+    "nombre": "Cinta Aislante 2.5cm x 20m",
+    "marca": "SecureTape",
+    "modelo": "CIS-2025",
+    "codigo": "FAQ004",
+    "codigo_producto": "FAQ-STP-2025",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1000
+      }
+    ],
+    "stock": 300
+  },
+  {
+    "nombre": "Adhesivo Epóxico de 2 Componentes 200g",
+    "marca": "BondX",
+    "modelo": "ADH-EPO200",
+    "codigo": "FAQ005",
+    "codigo_producto": "FAQ-BNX-E2C",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5500
+      }
+    ],
+    "stock": 50
+  },
+  {
+    "nombre": "Cinta Masking Tape 1.5cm x 25m",
+    "marca": "MaskPro",
+    "modelo": "MT-1525",
+    "codigo": "FAQ006",
+    "codigo_producto": "FAQ-MSK-1525",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 800
+      }
+    ],
+    "stock": 400
+  },
+  {
+    "nombre": "Pegamento para Madera 300g",
+    "marca": "WoodGlue",
+    "modelo": "PGW-300",
+    "codigo": "FAQ007",
+    "codigo_producto": "FAQ-WGL-300",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2000
+      }
+    ],
+    "stock": 120
+  },
+  {
+    "nombre": "Sellador de Grietas 400g",
+    "marca": "SealFix",
+    "modelo": "SEL-400",
+    "codigo": "FAQ008",
+    "codigo_producto": "FAQ-SFX-400",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3500
+      }
+    ],
+    "stock": 75
+  },
+  {
+    "nombre": "Adhesivo para Azulejos 1kg",
+    "marca": "TileBond",
+    "modelo": "AZL-1000",
+    "codigo": "FAQ009",
+    "codigo_producto": "FAQ-TLB-1000",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4200
+      }
+    ],
+    "stock": 60
+  },
+  {
+    "nombre": "Cinta de Aluminio 5cm x 10m",
+    "marca": "AluFix",
+    "modelo": "ALU-510",
+    "codigo": "FAQ010",
+    "codigo_producto": "FAQ-ALF-510",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1500
+      }
+    ],
+    "stock": 130
+  }
+]

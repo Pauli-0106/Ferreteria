@@ -1,0 +1,142 @@
+[
+  {
+    "nombre": "Martillo de Uña 20oz",
+    "marca": "HammerPro",
+    "modelo": "HU-20",
+    "codigo": "HMQ001",
+    "codigo_producto": "HMQ-HMP-HU20",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2500
+      }
+    ],
+    "stock": 100
+  },
+  {
+    "nombre": "Martillo de Bola 16oz",
+    "marca": "StrikeForce",
+    "modelo": "HB-16",
+    "codigo": "HMQ002",
+    "codigo_producto": "HMQ-SFR-HB16",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2200
+      }
+    ],
+    "stock": 120
+  },
+  {
+    "nombre": "Martillo de Carpintero 18oz",
+    "marca": "WoodMaster",
+    "modelo": "HC-18",
+    "codigo": "HMQ003",
+    "codigo_producto": "HMQ-WMT-HC18",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2700
+      }
+    ],
+    "stock": 80
+  },
+  {
+    "nombre": "Martillo de Clavos 24oz",
+    "marca": "PowerStrike",
+    "modelo": "MC-24",
+    "codigo": "HMQ004",
+    "codigo_producto": "HMQ-PSK-MC24",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3200
+      }
+    ],
+    "stock": 90
+  },
+  {
+    "nombre": "Martillo de Carpintero 16oz",
+    "marca": "HardCraft",
+    "modelo": "HC-16",
+    "codigo": "HMQ005",
+    "codigo_producto": "HMQ-HCF-HC16",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2400
+      }
+    ],
+    "stock": 110
+  },
+  {
+    "nombre": "Martillo de Clavo con Agarre Antideslizante",
+    "marca": "GripHammer",
+    "modelo": "GH-20",
+    "codigo": "HMQ006",
+    "codigo_producto": "HMQ-GHP-GH20",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2900
+      }
+    ],
+    "stock": 70
+  },
+  {
+    "nombre": "Martillo de Demolición 32oz",
+    "marca": "HeavyHit",
+    "modelo": "HD-32",
+    "codigo": "HMQ007",
+    "codigo_producto": "HMQ-HHV-HD32",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4300
+      }
+    ],
+    "stock": 40
+  },
+  {
+    "nombre": "Martillo de Mano 16oz",
+    "marca": "ProHammer",
+    "modelo": "PH-16",
+    "codigo": "HMQ008",
+    "codigo_producto": "HMQ-PHR-PH16",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2300
+      }
+    ],
+    "stock": 130
+  },
+  {
+    "nombre": "Martillo de Pata de Cabra 12oz",
+    "marca": "CatClaw",
+    "modelo": "CC-12",
+    "codigo": "HMQ009",
+    "codigo_producto": "HMQ-CTC-CC12",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2800
+      }
+    ],
+    "stock": 60
+  },
+  {
+    "nombre": "Martillo de Fragua 40oz",
+    "marca": "ForgeMaster",
+    "modelo": "FM-40",
+    "codigo": "HMQ010",
+    "codigo_producto": "HMQ-FGM-FM40",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5200
+      }
+    ],
+    "stock": 50
+  }
+]

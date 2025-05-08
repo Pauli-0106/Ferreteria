@@ -1,0 +1,142 @@
+[
+  {
+    "nombre": "Lentes de Seguridad Antirayaduras",
+    "marca": "ClearVision",
+    "modelo": "CV-200",
+    "codigo": "LSQ001",
+    "codigo_producto": "LSQ-CVS-CV200",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1500
+      }
+    ],
+    "stock": 70
+  },
+  {
+    "nombre": "Lentes de Protección UV",
+    "marca": "SunShield",
+    "modelo": "SS-350",
+    "codigo": "LSQ002",
+    "codigo_producto": "LSQ-SSS-SS350",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2000
+      }
+    ],
+    "stock": 100
+  },
+  {
+    "nombre": "Lentes de Seguridad Antiimpacto",
+    "marca": "ImpactGuard",
+    "modelo": "IG-500",
+    "codigo": "LSQ003",
+    "codigo_producto": "LSQ-IGD-IG500",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2500
+      }
+    ],
+    "stock": 80
+  },
+  {
+    "nombre": "Lentes de Seguridad con Visión Larga Distancia",
+    "marca": "LongView",
+    "modelo": "LV-1000",
+    "codigo": "LSQ004",
+    "codigo_producto": "LSQ-LVD-LV1000",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3500
+      }
+    ],
+    "stock": 50
+  },
+  {
+    "nombre": "Lentes de Seguridad para Soldadores",
+    "marca": "WeldVision",
+    "modelo": "WV-800",
+    "codigo": "LSQ005",
+    "codigo_producto": "LSQ-WVD-WV800",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4500
+      }
+    ],
+    "stock": 60
+  },
+  {
+    "nombre": "Lentes de Seguridad de Alta Visibilidad",
+    "marca": "HighVis",
+    "modelo": "HV-150",
+    "codigo": "LSQ006",
+    "codigo_producto": "LSQ-HVS-HV150",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1800
+      }
+    ],
+    "stock": 90
+  },
+  {
+    "nombre": "Lentes de Seguridad con Lentes Intercambiables",
+    "marca": "FlexiLens",
+    "modelo": "FL-500",
+    "codigo": "LSQ007",
+    "codigo_producto": "LSQ-FLX-FL500",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3000
+      }
+    ],
+    "stock": 75
+  },
+  {
+    "nombre": "Lentes de Seguridad Antiempañantes",
+    "marca": "FogFree",
+    "modelo": "FF-200",
+    "codigo": "LSQ008",
+    "codigo_producto": "LSQ-FFF-FF200",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2200
+      }
+    ],
+    "stock": 50
+  },
+  {
+    "nombre": "Lentes de Seguridad para Alta Temperatura",
+    "marca": "HeatShield",
+    "modelo": "HS-300",
+    "codigo": "LSQ009",
+    "codigo_producto": "LSQ-HSD-HS300",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4000
+      }
+    ],
+    "stock": 40
+  },
+  {
+    "nombre": "Lentes de Seguridad para Pintura",
+    "marca": "PaintGuard",
+    "modelo": "PG-100",
+    "codigo": "LSQ010",
+    "codigo_producto": "LSQ-PGT-PG100",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2700
+      }
+    ],
+    "stock": 60
+  }
+]

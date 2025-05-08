@@ -5,7 +5,12 @@
     "modelo": "DP-750P",
     "precio": 10500,
     "codigo": "TEQ001",
-    "codigo_producto": "TEQ-DRP-750P"
+    "codigo_producto": "TEQ-DRP-750P",
+    "stock": 200,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Taladro Inalámbrico 18V",
@@ -13,7 +18,12 @@
     "modelo": "PD-18V",
     "precio": 9800,
     "codigo": "TEQ002",
-    "codigo_producto": "TEQ-PDR-18V"
+    "codigo_producto": "TEQ-PDR-18V",
+    "stock": 300,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Taladro Percutor 13mm 950W",
@@ -21,7 +31,12 @@
     "modelo": "MDP-13",
     "precio": 11500,
     "codigo": "TEQ003",
-    "codigo_producto": "TEQ-MDR-13"
+    "codigo_producto": "TEQ-MDR-13",
+    "stock": 150,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Taladro de Banco 500W",
@@ -29,7 +44,12 @@
     "modelo": "BD-500",
     "precio": 8500,
     "codigo": "TEQ004",
-    "codigo_producto": "TEQ-BDR-500"
+    "codigo_producto": "TEQ-BDR-500",
+    "stock": 100,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Taladro Rotativo 800W",
@@ -37,7 +57,12 @@
     "modelo": "TR-800",
     "precio": 9000,
     "codigo": "TEQ005",
-    "codigo_producto": "TEQ-VPR-800"
+    "codigo_producto": "TEQ-VPR-800",
+    "stock": 200,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Taladro Combinado 2 Velocidades 650W",
@@ -45,7 +70,12 @@
     "modelo": "DD-650",
     "precio": 7200,
     "codigo": "TEQ006",
-    "codigo_producto": "TEQ-DDR-650"
+    "codigo_producto": "TEQ-DDR-650",
+    "stock": 250,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Taladro a Batería 12V",
@@ -53,7 +83,12 @@
     "modelo": "MD-12V",
     "precio": 6800,
     "codigo": "TEQ007",
-    "codigo_producto": "TEQ-MDR-12V"
+    "codigo_producto": "TEQ-MDR-12V",
+    "stock": 400,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Taladro de Percusión 18V",
@@ -61,7 +96,12 @@
     "modelo": "PH-18V",
     "precio": 10600,
     "codigo": "TEQ008",
-    "codigo_producto": "TEQ-PHR-18V"
+    "codigo_producto": "TEQ-PHR-18V",
+    "stock": 150,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Taladro de Impacto 1200W",
@@ -69,7 +109,12 @@
     "modelo": "IM-1200",
     "precio": 14500,
     "codigo": "TEQ009",
-    "codigo_producto": "TEQ-IMP-1200"
+    "codigo_producto": "TEQ-IMP-1200",
+    "stock": 50,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   },
   {
     "nombre": "Taladro Inalámbrico Compacto 10.8V",
@@ -77,6 +122,11 @@
     "modelo": "CD-10V",
     "precio": 7400,
     "codigo": "TEQ010",
-    "codigo_producto": "TEQ-CDR-10V"
+    "codigo_producto": "TEQ-CDR-10V",
+    "stock": 300,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
   }
 ]

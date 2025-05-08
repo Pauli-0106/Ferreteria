@@ -1,0 +1,142 @@
+[
+  {
+    "nombre": "Casco de Seguridad con Visera",
+    "marca": "SecureHead",
+    "modelo": "SH-01",
+    "codigo": "CSQ001",
+    "codigo_producto": "CSQ-SHD-SH01",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4000
+      }
+    ],
+    "stock": 73
+  },
+  {
+    "nombre": "Casco de Seguridad Industrial",
+    "marca": "WorkSafe",
+    "modelo": "WS-20",
+    "codigo": "CSQ002",
+    "codigo_producto": "CSQ-WSF-WS20",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3500
+      }
+    ],
+    "stock": 82
+  },
+  {
+    "nombre": "Casco Antirruido con Banda Ajustable",
+    "marca": "SilenceCap",
+    "modelo": "SC-15",
+    "codigo": "CSQ003",
+    "codigo_producto": "CSQ-SLC-SC15",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4800
+      }
+    ],
+    "stock": 56
+  },
+  {
+    "nombre": "Casco de Seguridad con Ventilación",
+    "marca": "BreezeGuard",
+    "modelo": "BG-12",
+    "codigo": "CSQ004",
+    "codigo_producto": "CSQ-BGT-BG12",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5000
+      }
+    ],
+    "stock": 64
+  },
+  {
+    "nombre": "Casco de Seguridad con Protección UV",
+    "marca": "SunGuard",
+    "modelo": "SG-18",
+    "codigo": "CSQ005",
+    "codigo_producto": "CSQ-SGR-SG18",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5500
+      }
+    ],
+    "stock": 49
+  },
+  {
+    "nombre": "Casco de Seguridad con Reflectores",
+    "marca": "ReflectSafe",
+    "modelo": "RS-10",
+    "codigo": "CSQ006",
+    "codigo_producto": "CSQ-RFS-RS10",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4700
+      }
+    ],
+    "stock": 58
+  },
+  {
+    "nombre": "Casco de Protección Contra Caídas",
+    "marca": "FallShield",
+    "modelo": "FS-25",
+    "codigo": "CSQ007",
+    "codigo_producto": "CSQ-FSH-FS25",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 6000
+      }
+    ],
+    "stock": 41
+  },
+  {
+    "nombre": "Casco de Seguridad con Visor Desmontable",
+    "marca": "VisorPro",
+    "modelo": "VP-8",
+    "codigo": "CSQ008",
+    "codigo_producto": "CSQ-VPR-VP8",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4800
+      }
+    ],
+    "stock": 63
+  },
+  {
+    "nombre": "Casco de Seguridad para Construcción",
+    "marca": "BuildGuard",
+    "modelo": "BG-35",
+    "codigo": "CSQ009",
+    "codigo_producto": "CSQ-BGT-BG35",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5500
+      }
+    ],
+    "stock": 52
+  },
+  {
+    "nombre": "Casco de Seguridad Liviano",
+    "marca": "LightShield",
+    "modelo": "LS-05",
+    "codigo": "CSQ010",
+    "codigo_producto": "CSQ-LSH-LS05",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4200
+      }
+    ],
+    "stock": 67
+  }
+]

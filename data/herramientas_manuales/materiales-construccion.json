@@ -1,0 +1,142 @@
+[
+  {
+    "nombre": "Cemento Portland 42.5R",
+    "marca": "Cemex",
+    "modelo": "CP-42.5R",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4500
+      }
+    ],
+    "codigo": "MCC001",
+    "codigo_producto": "MCC-CMX-42.5R",
+    "stock": 200
+  },
+  {
+    "nombre": "Arena Gruesa para Construcción",
+    "marca": "ArenaPro",
+    "modelo": "AG-01",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1200
+      }
+    ],
+    "codigo": "MCC002",
+    "codigo_producto": "MCC-APR-AG01",
+    "stock": 150
+  },
+  {
+    "nombre": "Ladrillo Común 25x12x6cm",
+    "marca": "Ladrillos La Roja",
+    "modelo": "LDR-25X12",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 350
+      }
+    ],
+    "codigo": "MCC003",
+    "codigo_producto": "MCC-LDR-25X12",
+    "stock": 500
+  },
+  {
+    "nombre": "Piedra Picada para Cemento",
+    "marca": "RockMaster",
+    "modelo": "PRC-25",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1500
+      }
+    ],
+    "codigo": "MCC004",
+    "codigo_producto": "MCC-RMT-PRC25",
+    "stock": 300
+  },
+  {
+    "nombre": "Bloques de Hormigón 40x20x20cm",
+    "marca": "SolidBlock",
+    "modelo": "HB-402020",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2500
+      }
+    ],
+    "codigo": "MCC005",
+    "codigo_producto": "MCC-SBL-HB402020",
+    "stock": 120
+  },
+  {
+    "nombre": "Varilla de Acero 3/8\"",
+    "marca": "SteelFlex",
+    "modelo": "VAR-3/8",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 300
+      }
+    ],
+    "codigo": "MCC006",
+    "codigo_producto": "MCC-SFX-VAR38",
+    "stock": 400
+  },
+  {
+    "nombre": "Teja Asfáltica para Techos",
+    "marca": "RoofMaster",
+    "modelo": "TA-10",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3200
+      }
+    ],
+    "codigo": "MCC007",
+    "codigo_producto": "MCC-RMT-TA10",
+    "stock": 80
+  },
+  {
+    "nombre": "Yeso para Revestimiento",
+    "marca": "PlasterPro",
+    "modelo": "YES-01",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2200
+      }
+    ],
+    "codigo": "MCC008",
+    "codigo_producto": "MCC-PPT-YES01",
+    "stock": 150
+  },
+  {
+    "nombre": "Cemento Rápido 30kg",
+    "marca": "QuickCem",
+    "modelo": "CR-30KG",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5400
+      }
+    ],
+    "codigo": "MCC009",
+    "codigo_producto": "MCC-QCM-CR30KG",
+    "stock": 200
+  },
+  {
+    "nombre": "Madera para Encofrado 2m",
+    "marca": "WoodMaster",
+    "modelo": "MF-2M",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 8000
+      }
+    ],
+    "codigo": "MCC010",
+    "codigo_producto": "MCC-WMT-MF2M",
+    "stock": 50
+  }
+]

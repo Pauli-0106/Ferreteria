@@ -9,10 +9,10 @@
 <body>
   <header class="nav-bg">
     <nav class="Navegacion-principal contenedor">
-      <a href="index.html">Inicio</a>
-      <a href="#">Trabajadores</a>
+      <a href="{{ url_for('vista_index') }}">Inicio</a>
+      <a href="{{ url_for('vista_nosotros') }}">Usuarios</a>
+      <a href="{{ url_for('vista_inventario') }}">Catalogo</a>
       <a href="#">Clientes</a>
-      <a href="#">Catalogo</a>
       <a href="#">Sucursal</a>
     </nav>
   </header>

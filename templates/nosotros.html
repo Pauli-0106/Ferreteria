@@ -1,15 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="preload" href="{{ url_for('static', filename='css/normalize.css') }}" as="style" />
-    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
-    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nuestro Equipo</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>Sobre nosotros</h1>
-    
+  <header class="nav-bg">
+    <nav class="Navegacion-principal contenedor">
+      <a href="{{ url_for('vista_index') }}">Inicio</a>
+      <a href="{{ url_for('vista_nosotros') }}">Usuarios</a>
+      <a href="{{ url_for('vista_inventario') }}">Catalogo</a>
+      <a href="#">Clientes</a>
+      <a href="#">Sucursal</a>
+    </nav>
+  </header>
+
+  <main class="contenedor sombra">
+    <section>
+      <h1 class="Titulo">Nuestro <span>Equipo</span></h1>
+      <h3>Conoce a las personas que hacen posible Ferremas</h3>
+      <ul class="lista">
+        <li>Juan Pérez - Gerente General</li>
+        <li>María González - Encargada de Inventario</li>
+        <li>Carlos López - Atención al Cliente</li>
+        <li>Lucía Rojas - Cajera</li>
+        <li>Pedro Castro - Jefe de Bodega</li>
+        <li>Sofía Martínez - Vendedora</li>
+        <li>Andrés Torres - Técnico en Herramientas</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="contenedor">
+      <p>Todos los derechos reservados &copy; 2025</p>
+    </div>
+  </footer>
 </body>
 </html>

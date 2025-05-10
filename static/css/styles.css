@@ -1,20 +1,21 @@
 :root {
   --Blanco: #ffffff;
-  --Oscuro: #212121;
   --Primario: #ffc107;
   --Secunadario: #0097a7;
+  --Oscuro: #212121;
   --Gris: #757575;
   --Rojo: #ff0000;
+  --Naranjo: #FF5222;
+  --Azul: #1976D2;
   /* Aca podemos crear los colores que queramos y con el var(--Aca lo llamamos) */
 }
 /*Globales*/
 html {
   font-size: 62.5%;
   box-sizing: border-box; /* Hack para Box Model */
- 
+  scroll-snap-type: y mandatory;
 }
-
-*,
+*,  
 *:before,
 *:after {
   box-sizing: inherit;
@@ -135,11 +136,20 @@ h3 {
   color: #212121;
 }
 /* Hero */
+.logo{
+  text-decoration: none;
+}
+.navegacion__enlace--activo, .navegacion__enlace--activo a:hover{
+  background-color: var(--Primario);
+  color: var(--Oscuro) !important;
+}
+
+
 .Hero {
   background-image: url(../img/hero.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 450px;
+  height: 460px;
   position: relative;
   margin-bottom: 2rem; /* Separacion para abajo */
 }
@@ -168,7 +178,10 @@ h3 {
   align-items: flex-end;
 }
 /* Servicios */
-
+.servicios, .Navegacion-principal, .formulario {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
 @media (min-width: 768px) {
   .servicios {
     display: grid;
@@ -180,6 +193,7 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 .servicio h3{
   color:var(--Secunadario);
@@ -187,11 +201,12 @@ h3 {
 }
 .servicio p {
   line-height: 2; /* Nos dara un interniliado la distancia */
+  gap: 4rem;
 }
 .servicio .iconos{
   height: 15rem; /*Le pondremos una altura de 15rem*/
   width: 15rem;/* Le pondremos una anchura de 15rem*/
-  background-color: var(--Primario);
+  background-color: var(--Secunadario);
   border-radius: 50%;/*Curvear*/
   display: flex;
   justify-content: space-evenly;

@@ -1,21 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nuestro Equipo</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FERREMAS</title>
+
+  <link rel="preload" href="css/normalize.css" as="style" />
+  <link rel="stylesheet" href="../static/css/normalize.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="../static/css/styles.css" rel="stylesheet" />
 </head>
+
 <body>
-  <header class="nav-bg">
-    <nav class="Navegacion-principal contenedor">
-      <a href="{{ url_for('vista_index') }}">Inicio</a>
-      <a href="{{ url_for('vista_nosotros') }}">Usuarios</a>
-      <a href="{{ url_for('vista_inventario') }}">Catalogo</a>
-      <a href="#">Clientes</a>
-      <a href="#">Sucursal</a>
-    </nav>
+  <header class="posicion">
+    <a class="logo" href="index.html">
+      <h1 class="Titulo"><span>The </span>FERREMAS</h1>
+    </a>
+    <a class="login" href="">Iniciar Sección </a>
   </header>
+  <div class="nav-bg">
+    <nav class="Navegacion-principal contenedor">
+      <a class="navegacion__enlace" href="index.html">Inicio</a>
+      <a class="navegacion__enlace" href="inventario.html">Productos</a>
+      <a class="navegacion__enlace--activo" href="nosotros.html">Sobre Nosotros</a>
+      <a class="navegacion__enlace" href="sucursal.html">Sucursales</a>
+    </nav>
+  </div>
+
+
+  <section class="Hero">
+    <div class="contenido-hero">
+      <h2>La Mejor ferretería <span>FERREMAS</span>. Paga menos, Compra <span>MÁS</span></h2>
+    </div>
+  </section>
 
   <main class="contenedor sombra">
     <section>
@@ -31,6 +49,17 @@
         <li>Andrés Torres - Técnico en Herramientas</li>
       </ul>
     </section>
+    <div class="descripcion">
+      <div class="contenedor">
+        <h3 class="sobrenosotros">Sobre Nosotros</h3>
+        <p>En FERREMAS, nos especializamos en ofrecer soluciones de calidad para la construcción y el mantenimiento. Desde herramientas hasta materiales esenciales, nuestro compromiso es brindar productos confiables y asesoramiento experto para cada proyecto. Creemos en la innovación, el servicio al cliente y la excelencia en cada detalle.
+        </p>
+        <h3 >Nuestro Equipo</h3>
+        <p>Nuestro equipo está formado por profesionales apasionados por la industria ferretera y la construcción. Cada miembro aporta experiencia y dedicación para garantizar que nuestros clientes reciban la mejor atención y productos de alta calidad. Trabajamos juntos para ofrecer soluciones eficientes y adaptadas a las necesidades de cada cliente.
+        </p>
+      </div>
+      <img class="imagenSobreNopsotros" src="../static/img/SobreNosotros.jpg" alt="imagen nosotros">
+    </div>
   </main>
 
   <footer class="footer">
@@ -38,5 +67,6 @@
       <p>Todos los derechos reservados &copy; 2025</p>
     </div>
   </footer>
+  
 </body>
 </html>

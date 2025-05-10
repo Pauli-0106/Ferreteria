@@ -84,9 +84,17 @@ h3 {
   text-align: center;
 }
 /* Titulos */
+.posicion {
+  display: flex;
+  justify-content: space-between; /* Separa los elementos */
+  align-items: center; /* Alineación vertical */
+  padding: 0 1rem; /* Espaciado opcional */
+
+}
 .Titulo {
   text-align: center;
   color: var(--Rojo);
+  flex-grow: 1;
 }
 .Titulo span {
   font-size: 2rem;
@@ -137,6 +145,12 @@ h3 {
 }
 /* Hero */
 .logo{
+  text-decoration: none;
+}
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items:flex-end;
   text-decoration: none;
 }
 .navegacion__enlace--activo, .navegacion__enlace--activo a:hover{

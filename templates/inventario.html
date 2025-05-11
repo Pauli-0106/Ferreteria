@@ -10,14 +10,31 @@
   <link rel="stylesheet" href="../static/css/normalize.css" />
   <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet" />
   <link href="../static/css/styles.css" rel="stylesheet" />
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herramientas y Equipos</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
 </head>
 
 <body>
+
   <header class="posicion">
     <a class="logo" href="index.html">
       <h1 class="Titulo"><span>The </span>FERREMAS</h1>
     </a>
     <a class="login" href="">Iniciar Sección </a>
+
+  <header class="nav-bg">
+    <nav class="Navegacion-principal contenedor">
+      <a href="{{ url_for('vista_index') }}">Inicio</a>
+      <a href="{{ url_for('vista_nosotros') }}">Usuarios</a>
+      <a href="{{ url_for('vista_inventario') }}">Catálogo</a>
+      <a href="#">Clientes</a>
+      <a href="#">Sucursal</a>
+    </nav>
+
   </header>
   <div class="nav-bg">
     <nav class="Navegacion-principal contenedor">
@@ -37,7 +54,37 @@
 
   <main class="contenedor sombra">
     <section>
-      <h1 class="Titulo">Herramientas <span>Basicas</span></h1>
+      <h1 class="Titulo">Inventario <span>FERREMAS</span></h1>
+      <h3>Artículos Disponibles</h3>
+
+      {% for categoria, productos in inventario.items() %}
+        <h2>{{ categoria | capitalize }}</h2>
+        <table border="1" cellpadding="5" cellspacing="0" class="tabla-inventario">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Código</th>
+              <th>Precio</th>
+              <th>Stock</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for producto in productos %}
+              <tr>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.codigo }}</td>
+                <td>${{ producto.precio }}</td>
+                <td>{{ producto.stock }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% endfor %}
+    </section>
+
+    <!-- Secciones visuales anteriores -->
+    <section>
+      <h1 class="Titulo">Herramientas <span>Básicas</span></h1>
       <h3>Disponibles en Stock</h3>
       <ul class="lista">
         <li>Cemento</li>

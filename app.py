@@ -64,6 +64,7 @@ def vista_inventario():
     datos = cargar_todos_los_datos()
     return render_template("inventario.html", inventario=datos)
 
+
 # API de inventario completo
 @app.route("/api")
 def api_inventario():

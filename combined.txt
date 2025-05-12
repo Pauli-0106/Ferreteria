@@ -1,0 +1,3314 @@
+
+
+=== ./api/herramientas_manuales.py ===
+from flask import Blueprint, jsonify
+import json
+import os
+
+herramientas_manual_bp = Blueprint('herramientas_manual', __name__)
+BASE_DIR = os.path.join(os.path.dirname(__file__), '..', 'data', 'herramientas_manuales')
+
+@herramientas_manual_bp.route("/api/herramientas-manuales/<nombre_archivo>", methods=["GET"])
+def get_herramienta(nombre_archivo):
+    try:
+        file_path = os.path.join(BASE_DIR, f"{nombre_archivo}.json")
+        with open(file_path, "r", encoding="utf-8") as file:
+            data = json.load(file)
+        return jsonify(data)
+    except FileNotFoundError:
+        return jsonify({"error": "Archivo no encontrado"}), 404
+    except json.JSONDecodeError:
+        return jsonify({"error": "Error al decodificar el archivo JSON"}), 500
+
+
+=== ./api/__init__.py ===
+
+
+=== ./app.py ===
+from flask import Flask, jsonify, render_template
+import json
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+from api.herramientas_manuales import herramientas_manual_bp
+
+app = Flask(__name__)
+
+DATA_PATH = "data"
+app.register_blueprint(herramientas_manual_bp)
+
+def cargar_articulos():
+    with open("data/articulos.json", "r", encoding="utf-8") as archivo:
+        return json.load(archivo)
+
+@app.route("/api/articulos", methods=["GET"])
+def obtener_articulos():
+    articulos = cargar_articulos()
+    return jsonify(articulos)
+
+def cargar_todos_los_datos():
+    inventario = {}
+    for archivo in os.listdir(DATA_PATH):
+        if archivo.endswith(".json"):
+            nombre_categoria = archivo.replace(".json", "")
+            ruta = os.path.join(DATA_PATH, archivo)
+            with open(ruta, "r", encoding="utf-8") as f:
+                inventario[nombre_categoria] = json.load(f)
+    return inventario
+
+@app.route("/api/categoria/<nombre_categoria>")
+def api_categoria(nombre_categoria):
+    ruta_archivo = os.path.join(DATA_PATH, f"{nombre_categoria}.json")
+    ruta_carpeta = os.path.join(DATA_PATH, nombre_categoria)
+
+    if os.path.isfile(ruta_archivo):
+        with open(ruta_archivo, "r", encoding="utf-8") as archivo:
+            datos = json.load(archivo)
+        return jsonify(datos)
+
+    elif os.path.isdir(ruta_carpeta):
+        todos_los_datos = []
+        for archivo_nombre in os.listdir(ruta_carpeta):
+            if archivo_nombre.endswith(".json"):
+                ruta_json = os.path.join(ruta_carpeta, archivo_nombre)
+                with open(ruta_json, "r", encoding="utf-8") as archivo:
+                    datos = json.load(archivo)
+                    todos_los_datos.extend(datos)
+        return jsonify(todos_los_datos)
+
+    return jsonify({"error": "Categoría no encontrada"}), 404
+
+
+# Página principal e index
+@app.route("/")
+@app.route("/index")
+def vista_index():
+    return render_template("index.html")
+
+# Vista inventario (ahora se accede con /inventario)
+@app.route("/inventario")
+def vista_inventario():
+    datos = cargar_todos_los_datos()
+    return render_template("inventario.html", inventario=datos)
+
+# API de inventario completo
+@app.route("/api")
+def api_inventario():
+    datos = cargar_todos_los_datos()
+    return jsonify(datos)
+
+# Otras páginas
+@app.route('/confirmacion')
+def vista_confirmacion():
+    return render_template('confirmacion.html')
+
+@app.route('/nosotros')
+def vista_nosotros():
+    return render_template('nosotros.html')
+
+@app.route('/pago')
+def vista_pago():
+    return render_template('pago.html')
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+=== ./combined.txt ===
+
+
+=== ./data/equipos_seguridad/accesorios.json ===
+[
+  {
+    "nombre": "Cinta Métrica 5m",
+    "marca": "TapeMaster",
+    "modelo": "TM-5",
+    "codigo": "AVQ001",
+    "codigo_producto": "AVQ-TMM-TM5",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1200
+      }
+    ],
+    "stock": 85
+  },
+  {
+    "nombre": "Linterna LED Recargable",
+    "marca": "BrightLight",
+    "modelo": "BL-600",
+    "codigo": "AVQ002",
+    "codigo_producto": "AVQ-BLT-BL600",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3000
+      }
+    ],
+    "stock": 50
+  },
+  {
+    "nombre": "Caja de Herramientas de Plástico",
+    "marca": "ToolBoxPro",
+    "modelo": "TBP-15",
+    "codigo": "AVQ003",
+    "codigo_producto": "AVQ-TBP-TBP15",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1500
+      }
+    ],
+    "stock": 72
+  },
+  {
+    "nombre": "Guía Laser para Cortes",
+    "marca": "LaserGuide",
+    "modelo": "LG-100",
+    "codigo": "AVQ004",
+    "codigo_producto": "AVQ-LGT-LG100",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5000
+      }
+    ],
+    "stock": 41
+  }
+]
+
+
+=== ./data/equipos_seguridad/cascos.json ===
+[
+  {
+    "nombre": "Casco de Seguridad con Visera",
+    "marca": "SecureHead",
+    "modelo": "SH-01",
+    "codigo": "CSQ001",
+    "codigo_producto": "CSQ-SHD-SH01",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4000
+      }
+    ],
+    "stock": 73
+  },
+  {
+    "nombre": "Casco de Seguridad Industrial",
+    "marca": "WorkSafe",
+    "modelo": "WS-20",
+    "codigo": "CSQ002",
+    "codigo_producto": "CSQ-WSF-WS20",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3500
+      }
+    ],
+    "stock": 82
+  },
+  {
+    "nombre": "Casco Antirruido con Banda Ajustable",
+    "marca": "SilenceCap",
+    "modelo": "SC-15",
+    "codigo": "CSQ003",
+    "codigo_producto": "CSQ-SLC-SC15",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4800
+      }
+    ],
+    "stock": 56
+  },
+  {
+    "nombre": "Casco de Seguridad con Ventilación",
+    "marca": "BreezeGuard",
+    "modelo": "BG-12",
+    "codigo": "CSQ004",
+    "codigo_producto": "CSQ-BGT-BG12",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5000
+      }
+    ],
+    "stock": 64
+  },
+  {
+    "nombre": "Casco de Seguridad con Protección UV",
+    "marca": "SunGuard",
+    "modelo": "SG-18",
+    "codigo": "CSQ005",
+    "codigo_producto": "CSQ-SGR-SG18",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5500
+      }
+    ],
+    "stock": 49
+  },
+  {
+    "nombre": "Casco de Seguridad con Reflectores",
+    "marca": "ReflectSafe",
+    "modelo": "RS-10",
+    "codigo": "CSQ006",
+    "codigo_producto": "CSQ-RFS-RS10",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4700
+      }
+    ],
+    "stock": 58
+  },
+  {
+    "nombre": "Casco de Protección Contra Caídas",
+    "marca": "FallShield",
+    "modelo": "FS-25",
+    "codigo": "CSQ007",
+    "codigo_producto": "CSQ-FSH-FS25",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 6000
+      }
+    ],
+    "stock": 41
+  },
+  {
+    "nombre": "Casco de Seguridad con Visor Desmontable",
+    "marca": "VisorPro",
+    "modelo": "VP-8",
+    "codigo": "CSQ008",
+    "codigo_producto": "CSQ-VPR-VP8",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4800
+      }
+    ],
+    "stock": 63
+  },
+  {
+    "nombre": "Casco de Seguridad para Construcción",
+    "marca": "BuildGuard",
+    "modelo": "BG-35",
+    "codigo": "CSQ009",
+    "codigo_producto": "CSQ-BGT-BG35",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5500
+      }
+    ],
+    "stock": 52
+  },
+  {
+    "nombre": "Casco de Seguridad Liviano",
+    "marca": "LightShield",
+    "modelo": "LS-05",
+    "codigo": "CSQ010",
+    "codigo_producto": "CSQ-LSH-LS05",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4200
+      }
+    ],
+    "stock": 67
+  }
+]
+
+
+=== ./data/equipos_seguridad/equpos-medicion.json ===
+[
+  {
+    "nombre": "Nivel Láser de Precisión 360°",
+    "marca": "LaserMaster",
+    "modelo": "LVL-360",
+    "codigo": "EMQ001",
+    "codigo_producto": "EMQ-LMS-360",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 12500
+      }
+    ],
+    "stock": 45
+  },
+  {
+    "nombre": "Medidor de Distancia Láser 50m",
+    "marca": "DistPro",
+    "modelo": "MDL-50",
+    "codigo": "EMQ002",
+    "codigo_producto": "EMQ-DPT-50",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4800
+      }
+    ],
+    "stock": 80
+  },
+  {
+    "nombre": "Cinta Métrica de Acero 5m",
+    "marca": "TapeMaster",
+    "modelo": "CMA-5",
+    "codigo": "EMQ003",
+    "codigo_producto": "EMQ-TMS-5",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1200
+      }
+    ],
+    "stock": 150
+  },
+  {
+    "nombre": "Termómetro Digital Infrarrojo",
+    "marca": "HeatScan",
+    "modelo": "THM-IR",
+    "codigo": "EMQ004",
+    "codigo_producto": "EMQ-HST-IR",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3500
+      }
+    ],
+    "stock": 65
+  },
+  {
+    "nombre": "Multímetro Digital 600V",
+    "marca": "VoltMaster",
+    "modelo": "MTD-600",
+    "codigo": "EMQ005",
+    "codigo_producto": "EMQ-VMT-600",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 6700
+      }
+    ],
+    "stock": 50
+  },
+  {
+    "nombre": "Calibrador Vernier 150mm",
+    "marca": "PreciseMeasure",
+    "modelo": "CV-150",
+    "codigo": "EMQ006",
+    "codigo_producto": "EMQ-PMR-150",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2200
+      }
+    ],
+    "stock": 110
+  },
+  {
+    "nombre": "Medidor de Humedad Digital",
+    "marca": "MoisturePro",
+    "modelo": "MDH-DIGI",
+    "codigo": "EMQ007",
+    "codigo_producto": "EMQ-MST-DG",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4200
+      }
+    ],
+    "stock": 95
+  },
+  {
+    "nombre": "Manómetro Digital para Gas",
+    "marca": "GasCheck",
+    "modelo": "MND-GAS",
+    "codigo": "EMQ008",
+    "codigo_producto": "EMQ-GCX-MD",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5600
+      }
+    ],
+    "stock": 70
+  },
+  {
+    "nombre": "Termómetro para Superficies 100-500°C",
+    "marca": "TempScan",
+    "modelo": "TMP-SURF",
+    "codigo": "EMQ009",
+    "codigo_producto": "EMQ-TSN-SF",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 8500
+      }
+    ],
+    "stock": 40
+  },
+  {
+    "nombre": "Medidor de Presión 0-10 bar",
+    "marca": "PressurePro",
+    "modelo": "MP-10B",
+    "codigo": "EMQ010",
+    "codigo_producto": "EMQ-PRP-10B",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3300
+      }
+    ],
+    "stock": 120
+  }
+]
+
+
+=== ./data/equipos_seguridad/fijadores_adhesivos.json ===
+[
+  {
+    "nombre": "Adhesivo de Contacto 500g",
+    "marca": "FixPro",
+    "modelo": "ADH-CON500",
+    "codigo": "FAQ001",
+    "codigo_producto": "FAQ-FXP-500",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2400
+      }
+    ],
+    "stock": 100
+  },
+  {
+    "nombre": "Cinta Doble Cara 1.5cm x 10m",
+    "marca": "StickPro",
+    "modelo": "CDA-1015",
+    "codigo": "FAQ002",
+    "codigo_producto": "FAQ-STP-1015",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1200
+      }
+    ],
+    "stock": 200
+  },
+  {
+    "nombre": "Pegamento Rápido para Plástico 50g",
+    "marca": "QuickFix",
+    "modelo": "PEG-PLS50",
+    "codigo": "FAQ003",
+    "codigo_producto": "FAQ-QFX-PL50",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1800
+      }
+    ],
+    "stock": 150
+  },
+  {
+    "nombre": "Cinta Aislante 2.5cm x 20m",
+    "marca": "SecureTape",
+    "modelo": "CIS-2025",
+    "codigo": "FAQ004",
+    "codigo_producto": "FAQ-STP-2025",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1000
+      }
+    ],
+    "stock": 300
+  },
+  {
+    "nombre": "Adhesivo Epóxico de 2 Componentes 200g",
+    "marca": "BondX",
+    "modelo": "ADH-EPO200",
+    "codigo": "FAQ005",
+    "codigo_producto": "FAQ-BNX-E2C",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5500
+      }
+    ],
+    "stock": 50
+  },
+  {
+    "nombre": "Cinta Masking Tape 1.5cm x 25m",
+    "marca": "MaskPro",
+    "modelo": "MT-1525",
+    "codigo": "FAQ006",
+    "codigo_producto": "FAQ-MSK-1525",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 800
+      }
+    ],
+    "stock": 400
+  },
+  {
+    "nombre": "Pegamento para Madera 300g",
+    "marca": "WoodGlue",
+    "modelo": "PGW-300",
+    "codigo": "FAQ007",
+    "codigo_producto": "FAQ-WGL-300",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2000
+      }
+    ],
+    "stock": 120
+  },
+  {
+    "nombre": "Sellador de Grietas 400g",
+    "marca": "SealFix",
+    "modelo": "SEL-400",
+    "codigo": "FAQ008",
+    "codigo_producto": "FAQ-SFX-400",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3500
+      }
+    ],
+    "stock": 75
+  },
+  {
+    "nombre": "Adhesivo para Azulejos 1kg",
+    "marca": "TileBond",
+    "modelo": "AZL-1000",
+    "codigo": "FAQ009",
+    "codigo_producto": "FAQ-TLB-1000",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4200
+      }
+    ],
+    "stock": 60
+  },
+  {
+    "nombre": "Cinta de Aluminio 5cm x 10m",
+    "marca": "AluFix",
+    "modelo": "ALU-510",
+    "codigo": "FAQ010",
+    "codigo_producto": "FAQ-ALF-510",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1500
+      }
+    ],
+    "stock": 130
+  }
+]
+
+
+=== ./data/equipos_seguridad/guantes.json ===
+[
+  {
+    "nombre": "Guantes de Protección Industrial",
+    "marca": "SafeHands",
+    "modelo": "SH-100",
+    "codigo": "GSQ001",
+    "codigo_producto": "GSQ-SHD-SH100",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1200
+      }
+    ],
+    "stock": 100
+  },
+  {
+    "nombre": "Guantes Anticorte",
+    "marca": "CutGuard",
+    "modelo": "CG-200",
+    "codigo": "GSQ002",
+    "codigo_producto": "GSQ-CGT-CG200",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1800
+      }
+    ],
+    "stock": 150
+  },
+  {
+    "nombre": "Guantes de Cuero para Trabajo Pesado",
+    "marca": "LeatherWork",
+    "modelo": "LW-10",
+    "codigo": "GSQ003",
+    "codigo_producto": "GSQ-LWK-LW10",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2500
+      }
+    ],
+    "stock": 80
+  },
+  {
+    "nombre": "Guantes de Protección para Soldadores",
+    "marca": "ArcSafe",
+    "modelo": "AS-300",
+    "codigo": "GSQ004",
+    "codigo_producto": "GSQ-ARC-AS300",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3500
+      }
+    ],
+    "stock": 60
+  },
+  {
+    "nombre": "Guantes de Látex para Manejo de Productos Químicos",
+    "marca": "ChemGuard",
+    "modelo": "CG-50",
+    "codigo": "GSQ005",
+    "codigo_producto": "GSQ-CGM-CG50",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1500
+      }
+    ],
+    "stock": 200
+  },
+  {
+    "nombre": "Guantes Antideslizantes de Nitrilo",
+    "marca": "GripTech",
+    "modelo": "GT-500",
+    "codigo": "GSQ006",
+    "codigo_producto": "GSQ-GTT-GT500",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2200
+      }
+    ],
+    "stock": 180
+  },
+  {
+    "nombre": "Guantes de Protección para Maniobras",
+    "marca": "GripSafe",
+    "modelo": "GS-200",
+    "codigo": "GSQ007",
+    "codigo_producto": "GSQ-GSP-GS200",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1800
+      }
+    ],
+    "stock": 150
+  },
+  {
+    "nombre": "Guantes de Protección para Manejo de Materiales",
+    "marca": "WorkGrip",
+    "modelo": "WG-350",
+    "codigo": "GSQ008",
+    "codigo_producto": "GSQ-WGP-WG350",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2000
+      }
+    ],
+    "stock": 120
+  },
+  {
+    "nombre": "Guantes de Alta Visibilidad",
+    "marca": "VisiSafe",
+    "modelo": "VS-100",
+    "codigo": "GSQ009",
+    "codigo_producto": "GSQ-VST-VS100",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2300
+      }
+    ],
+    "stock": 90
+  },
+  {
+    "nombre": "Guantes Impermeables de PVC",
+    "marca": "WaterGuard",
+    "modelo": "WG-500",
+    "codigo": "GSQ010",
+    "codigo_producto": "GSQ-WGP-WG500",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2700
+      }
+    ],
+    "stock": 70
+  }
+]
+
+
+=== ./data/equipos_seguridad/lentes.json ===
+[
+  {
+    "nombre": "Lentes de Seguridad Antirayaduras",
+    "marca": "ClearVision",
+    "modelo": "CV-200",
+    "codigo": "LSQ001",
+    "codigo_producto": "LSQ-CVS-CV200",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1500
+      }
+    ],
+    "stock": 70
+  },
+  {
+    "nombre": "Lentes de Protección UV",
+    "marca": "SunShield",
+    "modelo": "SS-350",
+    "codigo": "LSQ002",
+    "codigo_producto": "LSQ-SSS-SS350",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2000
+      }
+    ],
+    "stock": 100
+  },
+  {
+    "nombre": "Lentes de Seguridad Antiimpacto",
+    "marca": "ImpactGuard",
+    "modelo": "IG-500",
+    "codigo": "LSQ003",
+    "codigo_producto": "LSQ-IGD-IG500",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2500
+      }
+    ],
+    "stock": 80
+  },
+  {
+    "nombre": "Lentes de Seguridad con Visión Larga Distancia",
+    "marca": "LongView",
+    "modelo": "LV-1000",
+    "codigo": "LSQ004",
+    "codigo_producto": "LSQ-LVD-LV1000",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3500
+      }
+    ],
+    "stock": 50
+  },
+  {
+    "nombre": "Lentes de Seguridad para Soldadores",
+    "marca": "WeldVision",
+    "modelo": "WV-800",
+    "codigo": "LSQ005",
+    "codigo_producto": "LSQ-WVD-WV800",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4500
+      }
+    ],
+    "stock": 60
+  },
+  {
+    "nombre": "Lentes de Seguridad de Alta Visibilidad",
+    "marca": "HighVis",
+    "modelo": "HV-150",
+    "codigo": "LSQ006",
+    "codigo_producto": "LSQ-HVS-HV150",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1800
+      }
+    ],
+    "stock": 90
+  },
+  {
+    "nombre": "Lentes de Seguridad con Lentes Intercambiables",
+    "marca": "FlexiLens",
+    "modelo": "FL-500",
+    "codigo": "LSQ007",
+    "codigo_producto": "LSQ-FLX-FL500",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3000
+      }
+    ],
+    "stock": 75
+  },
+  {
+    "nombre": "Lentes de Seguridad Antiempañantes",
+    "marca": "FogFree",
+    "modelo": "FF-200",
+    "codigo": "LSQ008",
+    "codigo_producto": "LSQ-FFF-FF200",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2200
+      }
+    ],
+    "stock": 50
+  },
+  {
+    "nombre": "Lentes de Seguridad para Alta Temperatura",
+    "marca": "HeatShield",
+    "modelo": "HS-300",
+    "codigo": "LSQ009",
+    "codigo_producto": "LSQ-HSD-HS300",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4000
+      }
+    ],
+    "stock": 40
+  },
+  {
+    "nombre": "Lentes de Seguridad para Pintura",
+    "marca": "PaintGuard",
+    "modelo": "PG-100",
+    "codigo": "LSQ010",
+    "codigo_producto": "LSQ-PGT-PG100",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2700
+      }
+    ],
+    "stock": 60
+  }
+]
+
+
+=== ./data/equipos_seguridad/tornillos_anclajes.json ===
+[
+  {
+    "nombre": "Tornillo de Acero Inoxidable 6x50mm",
+    "marca": "FastFix",
+    "modelo": "TIN-650",
+    "precio": 1200,
+    "codigo": "TAQ001",
+    "codigo_producto": "TAQ-FFX-650",
+    "stock": 500,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Tornillo Autoperforante 4.2x25mm",
+    "marca": "QuickThread",
+    "modelo": "TAQ-425",
+    "precio": 800,
+    "codigo": "TAQ002",
+    "codigo_producto": "TAQ-QTH-425",
+    "stock": 750,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Tornillo de Madera 8x40mm",
+    "marca": "WoodFix",
+    "modelo": "TWM-840",
+    "precio": 1500,
+    "codigo": "TAQ003",
+    "codigo_producto": "TAQ-WDX-840",
+    "stock": 300,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Anclaje de Pared de Plástico 8mm",
+    "marca": "FixWall",
+    "modelo": "AWP-8",
+    "precio": 500,
+    "codigo": "TAQ004",
+    "codigo_producto": "TAQ-FWX-A8",
+    "stock": 1000,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Tornillo de Cabeza Roscada 5x30mm",
+    "marca": "BoltPro",
+    "modelo": "TCR-530",
+    "precio": 950,
+    "codigo": "TAQ005",
+    "codigo_producto": "TAQ-BTP-530",
+    "stock": 400,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Anclaje de Expansión para Concreto 10mm",
+    "marca": "ConcreteFix",
+    "modelo": "AEC-10",
+    "precio": 2100,
+    "codigo": "TAQ006",
+    "codigo_producto": "TAQ-CFX-A10",
+    "stock": 250,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Tornillo de Acero para Metal 3.5x20mm",
+    "marca": "MetalFast",
+    "modelo": "TAM-3520",
+    "precio": 600,
+    "codigo": "TAQ007",
+    "codigo_producto": "TAQ-MFS-3520",
+    "stock": 800,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Tornillo de Seguridad Anti-Robo 6x40mm",
+    "marca": "SecureFix",
+    "modelo": "TSA-640",
+    "precio": 2200,
+    "codigo": "TAQ008",
+    "codigo_producto": "TAQ-SFX-SA6",
+    "stock": 150,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Anclaje Químico de 12mm",
+    "marca": "ChemAnchor",
+    "modelo": "ACQ-12",
+    "precio": 3800,
+    "codigo": "TAQ009",
+    "codigo_producto": "TAQ-CAX-C12",
+    "stock": 80,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Tornillo Hexagonal 10x60mm",
+    "marca": "HexaFix",
+    "modelo": "THX-1060",
+    "precio": 1600,
+    "codigo": "TAQ010",
+    "codigo_producto": "TAQ-HFX-H10",
+    "stock": 450,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  }
+]
+
+
+=== ./data/herramientas_manuales/destornilladores.json ===
+[
+  {
+    "nombre": "Destornillador Phillips 6\"",
+    "marca": "GripFix",
+    "modelo": "DP-6",
+    "codigo": "DEQ001",
+    "codigo_producto": "DEQ-GFX-DP6",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1200
+      }
+    ],
+    "stock": 120
+  },
+  {
+    "nombre": "Destornillador Plano 5\"",
+    "marca": "ToolPro",
+    "modelo": "DP-5",
+    "codigo": "DEQ002",
+    "codigo_producto": "DEQ-TPR-DP5",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1100
+      }
+    ],
+    "stock": 135
+  },
+  {
+    "nombre": "Destornillador Estrella 4\"",
+    "marca": "StarFix",
+    "modelo": "DS-4",
+    "codigo": "DEQ003",
+    "codigo_producto": "DEQ-SFX-DS4",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1300
+      }
+    ],
+    "stock": 128
+  },
+  {
+    "nombre": "Destornillador Eléctrico 12V",
+    "marca": "PowerDriver",
+    "modelo": "DE-12V",
+    "codigo": "DEQ004",
+    "codigo_producto": "DEQ-PDR-DE12V",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5800
+      }
+    ],
+    "stock": 52
+  },
+  {
+    "nombre": "Destornillador de Precisión 3\"",
+    "marca": "PrecisionPro",
+    "modelo": "DP-3",
+    "codigo": "DEQ005",
+    "codigo_producto": "DEQ-PRP-DP3",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 900
+      }
+    ],
+    "stock": 145
+  },
+  {
+    "nombre": "Destornillador Inalámbrico 18V",
+    "marca": "CordlessFix",
+    "modelo": "CF-18V",
+    "codigo": "DEQ006",
+    "codigo_producto": "DEQ-CFX-CF18V",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 8500
+      }
+    ],
+    "stock": 39
+  },
+  {
+    "nombre": "Destornillador Magnético 7\"",
+    "marca": "MagnetFix",
+    "modelo": "DM-7",
+    "codigo": "DEQ007",
+    "codigo_producto": "DEQ-MFT-DM7",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2000
+      }
+    ],
+    "stock": 95
+  },
+  {
+    "nombre": "Destornillador de Impacto 900W",
+    "marca": "ImpactForce",
+    "modelo": "DI-900",
+    "codigo": "DEQ008",
+    "codigo_producto": "DEQ-IFR-DI900",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 7200
+      }
+    ],
+    "stock": 45
+  },
+  {
+    "nombre": "Destornillador Bivolt 10V",
+    "marca": "VoltFix",
+    "modelo": "DV-10V",
+    "codigo": "DEQ009",
+    "codigo_producto": "DEQ-VFT-DV10V",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 6200
+      }
+    ],
+    "stock": 50
+  },
+  {
+    "nombre": "Destornillador 2 en 1 Plano/Phillips",
+    "marca": "DualFix",
+    "modelo": "DP-2IN1",
+    "codigo": "DEQ010",
+    "codigo_producto": "DEQ-DFX-DP2IN1",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1500
+      }
+    ],
+    "stock": 110
+  }
+]
+
+
+=== ./data/herramientas_manuales/herramientas_electricas/lijadoras.json ===
+[
+  {
+    "nombre": "Lijadora Orbital 200W",
+    "marca": "SmoothPro",
+    "modelo": "LO-200",
+    "codigo": "LEQ001",
+    "codigo_producto": "LEQ-SPR-200",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4900
+      }
+    ],
+    "stock": 60
+  },
+  {
+    "nombre": "Lijadora de Banda 750W",
+    "marca": "BeltMaster",
+    "modelo": "LB-750",
+    "codigo": "LEQ002",
+    "codigo_producto": "LEQ-BMT-750",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 8500
+      }
+    ],
+    "stock": 40
+  },
+  {
+    "nombre": "Lijadora Excéntrica 1200W",
+    "marca": "Excentra",
+    "modelo": "LE-1200",
+    "codigo": "LEQ003",
+    "codigo_producto": "LEQ-EXT-1200",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 11500
+      }
+    ],
+    "stock": 30
+  },
+  {
+    "nombre": "Lijadora de Detalle 180W",
+    "marca": "DetailPro",
+    "modelo": "LD-180",
+    "codigo": "LEQ004",
+    "codigo_producto": "LEQ-DPT-180",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3200
+      }
+    ],
+    "stock": 50
+  },
+  {
+    "nombre": "Lijadora de Piso 1500W",
+    "marca": "FloorMaster",
+    "modelo": "LP-1500",
+    "codigo": "LEQ005",
+    "codigo_producto": "LEQ-FMT-1500",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 22000
+      }
+    ],
+    "stock": 20
+  },
+  {
+    "nombre": "Lijadora Orbital con Regulador 250W",
+    "marca": "ReguLij",
+    "modelo": "LO-250R",
+    "codigo": "LEQ006",
+    "codigo_producto": "LEQ-RGL-250",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5800
+      }
+    ],
+    "stock": 70
+  },
+  {
+    "nombre": "Lijadora de Banda Compacta 650W",
+    "marca": "CompactBelt",
+    "modelo": "LB-650C",
+    "codigo": "LEQ007",
+    "codigo_producto": "LEQ-CBT-650",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4500
+      }
+    ],
+    "stock": 80
+  },
+  {
+    "nombre": "Lijadora Orbital 500W",
+    "marca": "PowerSmooth",
+    "modelo": "LO-500",
+    "codigo": "LEQ008",
+    "codigo_producto": "LEQ-PSM-500",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 7200
+      }
+    ],
+    "stock": 50
+  },
+  {
+    "nombre": "Lijadora de Cinta 1000W",
+    "marca": "CintaPro",
+    "modelo": "LC-1000",
+    "codigo": "LEQ009",
+    "codigo_producto": "LEQ-CPT-1000",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 8900
+      }
+    ],
+    "stock": 40
+  },
+  {
+    "nombre": "Lijadora de Detalle y Multilijado 230W",
+    "marca": "MultiLij",
+    "modelo": "LD-230M",
+    "codigo": "LEQ010",
+    "codigo_producto": "LEQ-MLJ-230",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3700
+      }
+    ],
+    "stock": 60
+  }
+]
+
+
+=== ./data/herramientas_manuales/herramientas_electricas/sierras.json ===
+[
+  {
+    "nombre": "Sierra Circular 185mm 1600W",
+    "marca": "CutPro",
+    "modelo": "CS-1600",
+    "precio": 15800,
+    "codigo": "SEQ001",
+    "codigo_producto": "SEQ-CPR-1600",
+    "stock": 150,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Sierra de Calar 550W",
+    "marca": "JigsawMaster",
+    "modelo": "JSM-550",
+    "precio": 6400,
+    "codigo": "SEQ002",
+    "codigo_producto": "SEQ-JSM-550",
+    "stock": 250,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Sierra de Inglete 2000W",
+    "marca": "AngleCut",
+    "modelo": "IC-2000",
+    "precio": 25000,
+    "codigo": "SEQ003",
+    "codigo_producto": "SEQ-ANC-2000",
+    "stock": 100,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Sierra de Banda 700W",
+    "marca": "BandCut",
+    "modelo": "BC-700",
+    "precio": 8900,
+    "codigo": "SEQ004",
+    "codigo_producto": "SEQ-BCT-700",
+    "stock": 200,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Sierra Circular 235mm 2200W",
+    "marca": "MegaCut",
+    "modelo": "MC-2200",
+    "precio": 30000,
+    "codigo": "SEQ005",
+    "codigo_producto": "SEQ-MCT-2200",
+    "stock": 50,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Sierra de Mano 500mm",
+    "marca": "HandCut",
+    "modelo": "HM-500",
+    "precio": 3000,
+    "codigo": "SEQ006",
+    "codigo_producto": "SEQ-HCT-500",
+    "stock": 500,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Sierra de Calar Profesional 600W",
+    "marca": "ProJigsaw",
+    "modelo": "PJS-600",
+    "precio": 7500,
+    "codigo": "SEQ007",
+    "codigo_producto": "SEQ-PJS-600",
+    "stock": 180,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Sierra de Inglete Compacta 1800W",
+    "marca": "AngleMaster",
+    "modelo": "IM-1800",
+    "precio": 23000,
+    "codigo": "SEQ008",
+    "codigo_producto": "SEQ-AMS-1800",
+    "stock": 120,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Sierra de Corte 350mm 3000W",
+    "marca": "PowerSaw",
+    "modelo": "PS-3500",
+    "precio": 35000,
+    "codigo": "SEQ009",
+    "codigo_producto": "SEQ-PSW-3500",
+    "stock": 70,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Sierra de Disco 160mm 800W",
+    "marca": "MiniCut",
+    "modelo": "MC-1600",
+    "precio": 8500,
+    "codigo": "SEQ010",
+    "codigo_producto": "SEQ-MCT-1600",
+    "stock": 250,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  }
+]
+
+
+=== ./data/herramientas_manuales/herramientas_electricas/taladros.json ===
+[
+  {
+    "nombre": "Taladro de Percusión 750W",
+    "marca": "DrillPro",
+    "modelo": "DP-750P",
+    "precio": 10500,
+    "codigo": "TEQ001",
+    "codigo_producto": "TEQ-DRP-750P",
+    "stock": 200,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Taladro Inalámbrico 18V",
+    "marca": "PowerDrill",
+    "modelo": "PD-18V",
+    "precio": 9800,
+    "codigo": "TEQ002",
+    "codigo_producto": "TEQ-PDR-18V",
+    "stock": 300,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Taladro Percutor 13mm 950W",
+    "marca": "MaxDrill",
+    "modelo": "MDP-13",
+    "precio": 11500,
+    "codigo": "TEQ003",
+    "codigo_producto": "TEQ-MDR-13",
+    "stock": 150,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Taladro de Banco 500W",
+    "marca": "BenchDrill",
+    "modelo": "BD-500",
+    "precio": 8500,
+    "codigo": "TEQ004",
+    "codigo_producto": "TEQ-BDR-500",
+    "stock": 100,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Taladro Rotativo 800W",
+    "marca": "VortexPro",
+    "modelo": "TR-800",
+    "precio": 9000,
+    "codigo": "TEQ005",
+    "codigo_producto": "TEQ-VPR-800",
+    "stock": 200,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Taladro Combinado 2 Velocidades 650W",
+    "marca": "DualDrive",
+    "modelo": "DD-650",
+    "precio": 7200,
+    "codigo": "TEQ006",
+    "codigo_producto": "TEQ-DDR-650",
+    "stock": 250,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Taladro a Batería 12V",
+    "marca": "MiniDrill",
+    "modelo": "MD-12V",
+    "precio": 6800,
+    "codigo": "TEQ007",
+    "codigo_producto": "TEQ-MDR-12V",
+    "stock": 400,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Taladro de Percusión 18V",
+    "marca": "PowerHammer",
+    "modelo": "PH-18V",
+    "precio": 10600,
+    "codigo": "TEQ008",
+    "codigo_producto": "TEQ-PHR-18V",
+    "stock": 150,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Taladro de Impacto 1200W",
+    "marca": "ImpactMaster",
+    "modelo": "IM-1200",
+    "precio": 14500,
+    "codigo": "TEQ009",
+    "codigo_producto": "TEQ-IMP-1200",
+    "stock": 50,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  },
+  {
+    "nombre": "Taladro Inalámbrico Compacto 10.8V",
+    "marca": "CompactDrill",
+    "modelo": "CD-10V",
+    "precio": 7400,
+    "codigo": "TEQ010",
+    "codigo_producto": "TEQ-CDR-10V",
+    "stock": 300,
+    "ValorUF": {
+      "Fecha": "2025-05-07T00:00:00.000Z",
+      "Valor": 880
+    }
+  }
+]
+
+
+=== ./data/herramientas_manuales/llaves.json ===
+[
+  {
+    "nombre": "Llave Ajustable 10\"",
+    "marca": "FlexiTool",
+    "modelo": "KA-10",
+    "codigo": "LQ001",
+    "codigo_producto": "LQ-FXT-KA10",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2500
+      }
+    ],
+    "stock": 100
+  },
+  {
+    "nombre": "Llave de Tubo 12mm",
+    "marca": "PipeMaster",
+    "modelo": "KT-12",
+    "codigo": "LQ002",
+    "codigo_producto": "LQ-PMT-KT12",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1500
+      }
+    ],
+    "stock": 120
+  },
+  {
+    "nombre": "Llave de Cr-V 18mm",
+    "marca": "SteelForce",
+    "modelo": "KC-18",
+    "codigo": "LQ003",
+    "codigo_producto": "LQ-SFR-KC18",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3200
+      }
+    ],
+    "stock": 80
+  },
+  {
+    "nombre": "Llave Combinada 19mm",
+    "marca": "MechanicPro",
+    "modelo": "KC-19",
+    "codigo": "LQ004",
+    "codigo_producto": "LQ-MCP-KC19",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2200
+      }
+    ],
+    "stock": 90
+  },
+  {
+    "nombre": "Llave de Impacto 1/2\" 500Nm",
+    "marca": "ImpactMaster",
+    "modelo": "KI-500",
+    "codigo": "LQ005",
+    "codigo_producto": "LQ-IMP-KI500",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 7200
+      }
+    ],
+    "stock": 40
+  },
+  {
+    "nombre": "Llave de Ajuste Rápido 8\"",
+    "marca": "QuickFix",
+    "modelo": "KAQ-8",
+    "codigo": "LQ006",
+    "codigo_producto": "LQ-QFX-KAQ8",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1800
+      }
+    ],
+    "stock": 110
+  },
+  {
+    "nombre": "Llave de Grifo 22mm",
+    "marca": "PlumbingPro",
+    "modelo": "KG-22",
+    "codigo": "LQ007",
+    "codigo_producto": "LQ-PLM-KG22",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2600
+      }
+    ],
+    "stock": 60
+  },
+  {
+    "nombre": "Llave para Tornillos 13mm",
+    "marca": "ScrewMaster",
+    "modelo": "KT-13",
+    "codigo": "LQ008",
+    "codigo_producto": "LQ-SCM-KT13",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1400
+      }
+    ],
+    "stock": 130
+  },
+  {
+    "nombre": "Llave de Boca 21mm",
+    "marca": "HeavyTorque",
+    "modelo": "KB-21",
+    "codigo": "LQ009",
+    "codigo_producto": "LQ-HTQ-KB21",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3000
+      }
+    ],
+    "stock": 70
+  },
+  {
+    "nombre": "Llave de Encaje Rápido 25mm",
+    "marca": "FastFix",
+    "modelo": "KF-25",
+    "codigo": "LQ010",
+    "codigo_producto": "LQ-FTX-KF25",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3400
+      }
+    ],
+    "stock": 50
+  }
+]
+
+
+=== ./data/herramientas_manuales/martillos.json ===
+[
+  {
+    "nombre": "Martillo de Uña 20oz",
+    "marca": "HammerPro",
+    "modelo": "HU-20",
+    "codigo": "HMQ001",
+    "codigo_producto": "HMQ-HMP-HU20",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2500
+      }
+    ],
+    "stock": 100
+  },
+  {
+    "nombre": "Martillo de Bola 16oz",
+    "marca": "StrikeForce",
+    "modelo": "HB-16",
+    "codigo": "HMQ002",
+    "codigo_producto": "HMQ-SFR-HB16",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2200
+      }
+    ],
+    "stock": 120
+  },
+  {
+    "nombre": "Martillo de Carpintero 18oz",
+    "marca": "WoodMaster",
+    "modelo": "HC-18",
+    "codigo": "HMQ003",
+    "codigo_producto": "HMQ-WMT-HC18",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2700
+      }
+    ],
+    "stock": 80
+  },
+  {
+    "nombre": "Martillo de Clavos 24oz",
+    "marca": "PowerStrike",
+    "modelo": "MC-24",
+    "codigo": "HMQ004",
+    "codigo_producto": "HMQ-PSK-MC24",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3200
+      }
+    ],
+    "stock": 90
+  },
+  {
+    "nombre": "Martillo de Carpintero 16oz",
+    "marca": "HardCraft",
+    "modelo": "HC-16",
+    "codigo": "HMQ005",
+    "codigo_producto": "HMQ-HCF-HC16",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2400
+      }
+    ],
+    "stock": 110
+  },
+  {
+    "nombre": "Martillo de Clavo con Agarre Antideslizante",
+    "marca": "GripHammer",
+    "modelo": "GH-20",
+    "codigo": "HMQ006",
+    "codigo_producto": "HMQ-GHP-GH20",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2900
+      }
+    ],
+    "stock": 70
+  },
+  {
+    "nombre": "Martillo de Demolición 32oz",
+    "marca": "HeavyHit",
+    "modelo": "HD-32",
+    "codigo": "HMQ007",
+    "codigo_producto": "HMQ-HHV-HD32",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4300
+      }
+    ],
+    "stock": 40
+  },
+  {
+    "nombre": "Martillo de Mano 16oz",
+    "marca": "ProHammer",
+    "modelo": "PH-16",
+    "codigo": "HMQ008",
+    "codigo_producto": "HMQ-PHR-PH16",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2300
+      }
+    ],
+    "stock": 130
+  },
+  {
+    "nombre": "Martillo de Pata de Cabra 12oz",
+    "marca": "CatClaw",
+    "modelo": "CC-12",
+    "codigo": "HMQ009",
+    "codigo_producto": "HMQ-CTC-CC12",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2800
+      }
+    ],
+    "stock": 60
+  },
+  {
+    "nombre": "Martillo de Fragua 40oz",
+    "marca": "ForgeMaster",
+    "modelo": "FM-40",
+    "codigo": "HMQ010",
+    "codigo_producto": "HMQ-FGM-FM40",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5200
+      }
+    ],
+    "stock": 50
+  }
+]
+
+
+=== ./data/herramientas_manuales/materiales-construccion.json ===
+[
+  {
+    "nombre": "Cemento Portland 42.5R",
+    "marca": "Cemex",
+    "modelo": "CP-42.5R",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4500
+      }
+    ],
+    "codigo": "MCC001",
+    "codigo_producto": "MCC-CMX-42.5R",
+    "stock": 200
+  },
+  {
+    "nombre": "Arena Gruesa para Construcción",
+    "marca": "ArenaPro",
+    "modelo": "AG-01",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1200
+      }
+    ],
+    "codigo": "MCC002",
+    "codigo_producto": "MCC-APR-AG01",
+    "stock": 150
+  },
+  {
+    "nombre": "Ladrillo Común 25x12x6cm",
+    "marca": "Ladrillos La Roja",
+    "modelo": "LDR-25X12",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 350
+      }
+    ],
+    "codigo": "MCC003",
+    "codigo_producto": "MCC-LDR-25X12",
+    "stock": 500
+  },
+  {
+    "nombre": "Piedra Picada para Cemento",
+    "marca": "RockMaster",
+    "modelo": "PRC-25",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 1500
+      }
+    ],
+    "codigo": "MCC004",
+    "codigo_producto": "MCC-RMT-PRC25",
+    "stock": 300
+  },
+  {
+    "nombre": "Bloques de Hormigón 40x20x20cm",
+    "marca": "SolidBlock",
+    "modelo": "HB-402020",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2500
+      }
+    ],
+    "codigo": "MCC005",
+    "codigo_producto": "MCC-SBL-HB402020",
+    "stock": 120
+  },
+  {
+    "nombre": "Varilla de Acero 3/8\"",
+    "marca": "SteelFlex",
+    "modelo": "VAR-3/8",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 300
+      }
+    ],
+    "codigo": "MCC006",
+    "codigo_producto": "MCC-SFX-VAR38",
+    "stock": 400
+  },
+  {
+    "nombre": "Teja Asfáltica para Techos",
+    "marca": "RoofMaster",
+    "modelo": "TA-10",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3200
+      }
+    ],
+    "codigo": "MCC007",
+    "codigo_producto": "MCC-RMT-TA10",
+    "stock": 80
+  },
+  {
+    "nombre": "Yeso para Revestimiento",
+    "marca": "PlasterPro",
+    "modelo": "YES-01",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2200
+      }
+    ],
+    "codigo": "MCC008",
+    "codigo_producto": "MCC-PPT-YES01",
+    "stock": 150
+  },
+  {
+    "nombre": "Cemento Rápido 30kg",
+    "marca": "QuickCem",
+    "modelo": "CR-30KG",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5400
+      }
+    ],
+    "codigo": "MCC009",
+    "codigo_producto": "MCC-QCM-CR30KG",
+    "stock": 200
+  },
+  {
+    "nombre": "Madera para Encofrado 2m",
+    "marca": "WoodMaster",
+    "modelo": "MF-2M",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 8000
+      }
+    ],
+    "codigo": "MCC010",
+    "codigo_producto": "MCC-WMT-MF2M",
+    "stock": 50
+  }
+]
+
+
+=== ./data/materiales_basicos/acabados.json ===
+[
+  {
+    "nombre": "Yeso en Polvo Interior 20kg",
+    "marca": "Yesomax",
+    "modelo": "YPI20",
+    "codigo": "ACA001",
+    "codigo_producto": "ACA-YSX-20",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4800
+      }
+    ],
+    "stock": 75
+  },
+  {
+    "nombre": "Estuco Acrílico Blanco 25kg",
+    "marca": "Estucoplast",
+    "modelo": "EAB25",
+    "codigo": "ACA002",
+    "codigo_producto": "ACA-ETP-BL",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 6200
+      }
+    ],
+    "stock": 60
+  },
+  {
+    "nombre": "Revestimiento Cementicio Exterior",
+    "marca": "Revestek",
+    "modelo": "RCEX30",
+    "codigo": "ACA003",
+    "codigo_producto": "ACA-RVK-EX",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 8500
+      }
+    ],
+    "stock": 40
+  },
+  {
+    "nombre": "Masilla para Juntas 5kg",
+    "marca": "Masifix",
+    "modelo": "MJ5",
+    "codigo": "ACA004",
+    "codigo_producto": "ACA-MFX-J5",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3500
+      }
+    ],
+    "stock": 80
+  },
+  {
+    "nombre": "Texturizado Acrílico Muro",
+    "marca": "TexturaPro",
+    "modelo": "TXACR-MR",
+    "codigo": "ACA005",
+    "codigo_producto": "ACA-TXP-MR",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 7800
+      }
+    ],
+    "stock": 45
+  },
+  {
+    "nombre": "Enlucido Interior Blanco 20kg",
+    "marca": "Enlucem",
+    "modelo": "EI20",
+    "codigo": "ACA006",
+    "codigo_producto": "ACA-ELM-20",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5300
+      }
+    ],
+    "stock": 68
+  },
+  {
+    "nombre": "Mármol en Pasta Decorativa",
+    "marca": "Marmofix",
+    "modelo": "MPD-5L",
+    "codigo": "ACA007",
+    "codigo_producto": "ACA-MMF-P5",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 9900
+      }
+    ],
+    "stock": 55
+  },
+  {
+    "nombre": "Yeso de Terminación 15kg",
+    "marca": "FinalYeso",
+    "modelo": "YT15",
+    "codigo": "ACA008",
+    "codigo_producto": "ACA-FYS-T15",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4100
+      }
+    ],
+    "stock": 92
+  },
+  {
+    "nombre": "Mortero de Revestimiento Fino",
+    "marca": "RevestMax",
+    "modelo": "MRF-30",
+    "codigo": "ACA009",
+    "codigo_producto": "ACA-RVM-F30",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 8700
+      }
+    ],
+    "stock": 36
+  },
+  {
+    "nombre": "Masilla de Poliuretano 600ml",
+    "marca": "FixSeal",
+    "modelo": "PU600",
+    "codigo": "ACA010",
+    "codigo_producto": "ACA-FXS-PU",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 3900
+      }
+    ],
+    "stock": 70
+  }
+]
+
+
+=== ./data/materiales_basicos/arena.json ===
+[
+  {
+    "nombre": "Arena de Río Lavada m3",
+    "marca": "Arenera Andes",
+    "modelo": "AR-RIO-01",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 22000
+      }
+    ],
+    "codigo": "ARE001",
+    "codigo_producto": "ARE-AND-RIO",
+    "stock": 100
+  },
+  {
+    "nombre": "Arena Fina Seca 25kg",
+    "marca": "Minerales Patagonia",
+    "modelo": "AFS25",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5200
+      }
+    ],
+    "codigo": "ARE002",
+    "codigo_producto": "ARE-PAT-F25",
+    "stock": 200
+  },
+  {
+    "nombre": "Arena Gruesa 50kg",
+    "marca": "Constructora Sur",
+    "modelo": "AG50",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 6300
+      }
+    ],
+    "codigo": "ARE003",
+    "codigo_producto": "ARE-CSU-G50",
+    "stock": 150
+  },
+  {
+    "nombre": "Arena Silícea 40kg",
+    "marca": "Silicor",
+    "modelo": "SL40",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 7200
+      }
+    ],
+    "codigo": "ARE004",
+    "codigo_producto": "ARE-SLC-40",
+    "stock": 80
+  },
+  {
+    "nombre": "Arena para Mortero 30kg",
+    "marca": "Mortex",
+    "modelo": "MOR30",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5600
+      }
+    ],
+    "codigo": "ARE005",
+    "codigo_producto": "ARE-MTX-M30",
+    "stock": 120
+  },
+  {
+    "nombre": "Arena para Estuco 25kg",
+    "marca": "EstucMax",
+    "modelo": "EST25",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4900
+      }
+    ],
+    "codigo": "ARE006",
+    "codigo_producto": "ARE-EST-25",
+    "stock": 180
+  },
+  {
+    "nombre": "Arena Lavada Gruesa m3",
+    "marca": "Quinta Norte",
+    "modelo": "ALG-M3",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 23500
+      }
+    ],
+    "codigo": "ARE007",
+    "codigo_producto": "ARE-QNT-GRS",
+    "stock": 60
+  },
+  {
+    "nombre": "Arena Volcánica 20kg",
+    "marca": "GeoBuild",
+    "modelo": "VOL20",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5800
+      }
+    ],
+    "codigo": "ARE008",
+    "codigo_producto": "ARE-GBD-V20",
+    "stock": 90
+  },
+  {
+    "nombre": "Arena Blanca de Sílice 30kg",
+    "marca": "ArenaPlus",
+    "modelo": "SIL30",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 6700
+      }
+    ],
+    "codigo": "ARE009",
+    "codigo_producto": "ARE-APL-S30",
+    "stock": 110
+  },
+  {
+    "nombre": "Arena Compactada 40kg",
+    "marca": "CompacMix",
+    "modelo": "CMP40",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 6200
+      }
+    ],
+    "codigo": "ARE010",
+    "codigo_producto": "ARE-CMX-40",
+    "stock": 70
+  }
+]
+
+
+=== ./data/materiales_basicos/barnices.json ===
+[
+  {
+    "nombre": "Barniz Marino Transparente 1L",
+    "marca": "Barnilux",
+    "modelo": "MAR-TR1L",
+    "codigo": "BAR001",
+    "codigo_producto": "BAR-BNL-M1",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 6700
+      }
+    ],
+    "stock": 60
+  },
+  {
+    "nombre": "Barniz Sintético Alto Brillo 4L",
+    "marca": "Brillawood",
+    "modelo": "SINT-AB4L",
+    "codigo": "BAR002",
+    "codigo_producto": "BAR-BRW-AB",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 9800
+      }
+    ],
+    "stock": 47
+  },
+  {
+    "nombre": "Barniz Poliuretano Roble 1L",
+    "marca": "MaderSeal",
+    "modelo": "POL-RB1L",
+    "codigo": "BAR003",
+    "codigo_producto": "BAR-MDS-R1",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 7200
+      }
+    ],
+    "stock": 53
+  },
+  {
+    "nombre": "Barniz Nitrocelulósico Incoloro",
+    "marca": "NitroPro",
+    "modelo": "NC-INC",
+    "codigo": "BAR004",
+    "codigo_producto": "BAR-NTP-IC",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 7500
+      }
+    ],
+    "stock": 39
+  },
+  {
+    "nombre": "Barniz Mate Natural 5L",
+    "marca": "EcoWood",
+    "modelo": "MAT-NAT5L",
+    "codigo": "BAR005",
+    "codigo_producto": "BAR-EWD-M5",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 9600
+      }
+    ],
+    "stock": 26
+  },
+  {
+    "nombre": "Barniz al Agua Cedro 4L",
+    "marca": "AquaBarn",
+    "modelo": "AW-CED4L",
+    "codigo": "BAR006",
+    "codigo_producto": "BAR-AQB-C4",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 8800
+      }
+    ],
+    "stock": 44
+  },
+  {
+    "nombre": "Barniz para Piso de Madera 3.6L",
+    "marca": "PisoPro",
+    "modelo": "PIS-MD3L",
+    "codigo": "BAR007",
+    "codigo_producto": "BAR-PSP-M3",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 11400
+      }
+    ],
+    "stock": 38
+  },
+  {
+    "nombre": "Barniz Protector UV Exterior",
+    "marca": "UVShield",
+    "modelo": "EXT-UV",
+    "codigo": "BAR008",
+    "codigo_producto": "BAR-UVS-EX",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 10200
+      }
+    ],
+    "stock": 51
+  },
+  {
+    "nombre": "Barniz en Spray Acabado Satinado",
+    "marca": "SprayFinish",
+    "modelo": "SPF-SAT",
+    "codigo": "BAR009",
+    "codigo_producto": "BAR-SPF-ST",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5400
+      }
+    ],
+    "stock": 70
+  },
+  {
+    "nombre": "Barniz Tinte Caoba 1L",
+    "marca": "ColorBarn",
+    "modelo": "TNT-CBH1L",
+    "codigo": "BAR010",
+    "codigo_producto": "BAR-CLB-CB",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 6900
+      }
+    ],
+    "stock": 58
+  }
+]
+
+
+=== ./data/materiales_basicos/cemento.json ===
+[
+  {
+    "nombre": "Cemento Portland Gris 25kg",
+    "marca": "Melón",
+    "modelo": "CP25-MG",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5800
+      }
+    ],
+    "codigo": "CEM001",
+    "codigo_producto": "CEM-MEL-25",
+    "stock": 150
+  },
+  {
+    "nombre": "Cemento Rápido Secado 20kg",
+    "marca": "Holcim",
+    "modelo": "RAPID20",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 6200
+      }
+    ],
+    "codigo": "CEM002",
+    "codigo_producto": "CEM-HLC-20R",
+    "stock": 200
+  },
+  {
+    "nombre": "Cemento Blanco Extra Fino 15kg",
+    "marca": "Polpaico",
+    "modelo": "BLXF15",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 7100
+      }
+    ],
+    "codigo": "CEM003",
+    "codigo_producto": "CEM-POL-15B",
+    "stock": 120
+  },
+  {
+    "nombre": "Cemento Alta Resistencia 30kg",
+    "marca": "Cruz Azul",
+    "modelo": "RES30",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 8300
+      }
+    ],
+    "codigo": "CEM004",
+    "codigo_producto": "CEM-CAZ-30",
+    "stock": 80
+  },
+  {
+    "nombre": "Cemento Antisalitre 25kg",
+    "marca": "Cementos Bio Bio",
+    "modelo": "ANTIS25",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5900
+      }
+    ],
+    "codigo": "CEM005",
+    "codigo_producto": "CEM-BIO-25A",
+    "stock": 100
+  },
+  {
+    "nombre": "Cemento para Albañilería 25kg",
+    "marca": "Loma Negra",
+    "modelo": "ALBA25",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5500
+      }
+    ],
+    "codigo": "CEM006",
+    "codigo_producto": "CEM-LNG-25",
+    "stock": 140
+  },
+  {
+    "nombre": "Cemento Eco-Amigable 20kg",
+    "marca": "EcoCem",
+    "modelo": "ECO20",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 6800
+      }
+    ],
+    "codigo": "CEM007",
+    "codigo_producto": "CEM-ECO-20",
+    "stock": 110
+  },
+  {
+    "nombre": "Cemento Súper Adhesivo 18kg",
+    "marca": "UltraFix",
+    "modelo": "ADH18",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 6200
+      }
+    ],
+    "codigo": "CEM008",
+    "codigo_producto": "CEM-UFX-18",
+    "stock": 90
+  },
+  {
+    "nombre": "Cemento para Reparación Rápida 5kg",
+    "marca": "FixIt",
+    "modelo": "FIX5",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 2900
+      }
+    ],
+    "codigo": "CEM009",
+    "codigo_producto": "CEM-FIX-05",
+    "stock": 200
+  },
+  {
+    "nombre": "Cemento Proyectos Profesionales 40kg",
+    "marca": "Construmax",
+    "modelo": "PRO40",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 9500
+      }
+    ],
+    "codigo": "CEM010",
+    "codigo_producto": "CEM-CMX-40",
+    "stock": 70
+  }
+]
+
+
+=== ./data/materiales_basicos/ladrillos.json ===
+[
+  {
+    "nombre": "Ladrillo Fiscal 24x12x7 cm",
+    "marca": "Ladrillera Sur",
+    "modelo": "LF24127",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 350
+      }
+    ],
+    "codigo": "LAD001",
+    "codigo_producto": "LAD-SUR-FIS",
+    "stock": 500
+  },
+  {
+    "nombre": "Ladrillo Refractario Alta Temperatura",
+    "marca": "Termobrick",
+    "modelo": "TR-HT",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 950
+      }
+    ],
+    "codigo": "LAD002",
+    "codigo_producto": "LAD-TBK-HT",
+    "stock": 300
+  },
+  {
+    "nombre": "Ladrillo King Kong 30x15x10 cm",
+    "marca": "Bloques Chile",
+    "modelo": "KK301510",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 420
+      }
+    ],
+    "codigo": "LAD003",
+    "codigo_producto": "LAD-BCH-KK",
+    "stock": 450
+  },
+  {
+    "nombre": "Ladrillo Perforado 25x12x9 cm",
+    "marca": "BrickMax",
+    "modelo": "PF25129",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 310
+      }
+    ],
+    "codigo": "LAD004",
+    "codigo_producto": "LAD-BMX-PF",
+    "stock": 600
+  },
+  {
+    "nombre": "Ladrillo Hueco Ligero",
+    "marca": "Estructural",
+    "modelo": "HUE-LG",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 370
+      }
+    ],
+    "codigo": "LAD005",
+    "codigo_producto": "LAD-EST-LG",
+    "stock": 550
+  },
+  {
+    "nombre": "Ladrillo Decorativo Rojo",
+    "marca": "DecoBlock",
+    "modelo": "DEC-RJ",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 680
+      }
+    ],
+    "codigo": "LAD006",
+    "codigo_producto": "LAD-DCB-RJ",
+    "stock": 200
+  },
+  {
+    "nombre": "Ladrillo de Arcilla Natural",
+    "marca": "Terracota",
+    "modelo": "ARC-NAT",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 590
+      }
+    ],
+    "codigo": "LAD007",
+    "codigo_producto": "LAD-TCT-ARC",
+    "stock": 300
+  },
+  {
+    "nombre": "Ladrillo de Muro 29x14x9 cm",
+    "marca": "Murosol",
+    "modelo": "MUR29149",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 390
+      }
+    ],
+    "codigo": "LAD008",
+    "codigo_producto": "LAD-MRS-ML",
+    "stock": 400
+  },
+  {
+    "nombre": "Ladrillo para Piso Texturado",
+    "marca": "PaveStyle",
+    "modelo": "PAV-TX",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 770
+      }
+    ],
+    "codigo": "LAD009",
+    "codigo_producto": "LAD-PVS-TX",
+    "stock": 250
+  },
+  {
+    "nombre": "Ladrillo Termoacústico",
+    "marca": "EcoBlock",
+    "modelo": "TAC-01",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 880
+      }
+    ],
+    "codigo": "LAD010",
+    "codigo_producto": "LAD-ECB-TAC",
+    "stock": 180
+  }
+]
+
+
+=== ./data/materiales_basicos/pinturas.json ===
+[
+  {
+    "nombre": "Pintura Látex Interior Blanco 4L",
+    "marca": "PintuHome",
+    "modelo": "LAT-BL4L",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 8900
+      }
+    ],
+    "codigo": "PIN001",
+    "codigo_producto": "PIN-PTH-BL",
+    "stock": 100
+  },
+  {
+    "nombre": "Esmalte Sintético Brillante Rojo 1L",
+    "marca": "Brillak",
+    "modelo": "ESM-RO1L",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 5400
+      }
+    ],
+    "codigo": "PIN002",
+    "codigo_producto": "PIN-BLK-R1",
+    "stock": 150
+  },
+  {
+    "nombre": "Pintura Anticorrosiva Negra 5L",
+    "marca": "CorroStop",
+    "modelo": "ANT-NG5L",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 10500
+      }
+    ],
+    "codigo": "PIN003",
+    "codigo_producto": "PIN-CST-N5",
+    "stock": 80
+  },
+  {
+    "nombre": "Pintura para Fachadas Color Arena",
+    "marca": "Fachadas Pro",
+    "modelo": "FCH-ARN",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 11200
+      }
+    ],
+    "codigo": "PIN004",
+    "codigo_producto": "PIN-FCP-A1",
+    "stock": 60
+  },
+  {
+    "nombre": "Pintura Acrílica Azul Cielo 4L",
+    "marca": "Colorfast",
+    "modelo": "ACR-AZ4L",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 9200
+      }
+    ],
+    "codigo": "PIN005",
+    "codigo_producto": "PIN-CFS-AZ",
+    "stock": 120
+  },
+  {
+    "nombre": "Pintura Epóxica Piso Gris 3.6L",
+    "marca": "EpoxiMax",
+    "modelo": "EPO-GR3L",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 12400
+      }
+    ],
+    "codigo": "PIN006",
+    "codigo_producto": "PIN-EPM-G3",
+    "stock": 50
+  },
+  {
+    "nombre": "Pintura para Techo Impermeabilizante",
+    "marca": "ImperTech",
+    "modelo": "TCH-IMP",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 9900
+      }
+    ],
+    "codigo": "PIN007",
+    "codigo_producto": "PIN-IPT-TC",
+    "stock": 90
+  },
+  {
+    "nombre": "Pintura Látex Lavable Verde Pasto",
+    "marca": "ColorVida",
+    "modelo": "LLV-VDP",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 8800
+      }
+    ],
+    "codigo": "PIN008",
+    "codigo_producto": "PIN-CLV-VP",
+    "stock": 130
+  },
+  {
+    "nombre": "Pintura En Spray Metálica Dorada",
+    "marca": "SprayArt",
+    "modelo": "SPR-DOR",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 4900
+      }
+    ],
+    "codigo": "PIN009",
+    "codigo_producto": "PIN-SPA-DOR",
+    "stock": 200
+  },
+  {
+    "nombre": "Pintura Reflectante Blanca Carretera",
+    "marca": "ViaMark",
+    "modelo": "REF-BLC",
+    "precio": [
+      {
+        "Fecha": "2025-05-07T00:00:00.000Z",
+        "Valor": 13200
+      }
+    ],
+    "codigo": "PIN010",
+    "codigo_producto": "PIN-VMK-RB",
+    "stock": 40
+  }
+]
+
+
+=== ./js/pago.js ===
+// Validación de Tarjeta con RegEx mejorado
+const validarTarjeta = (numero) => /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$/.test(numero); // Visa/Mastercard
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('formulario-pago');
+  const productoInfo = document.getElementById('producto-info');
+
+  // Mostrar producto seleccionado
+  const params = new URLSearchParams(window.location.search);
+  if(params.has('producto') && params.has('precio')) {
+    productoInfo.innerHTML = `
+      <h3>🛒 Producto Seleccionado:</h3>
+      <p>${decodeURIComponent(params.get('producto'))} - $${params.get('precio')}</p>
+      <hr>
+    `;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    // Elementos UI
+    const spinner = document.createElement('div');
+    spinner.className = 'spinner';
+    const submitBtn = form.querySelector('button');
+    submitBtn.disabled = true;
+    form.appendChild(spinner);
+
+    try {
+      // Simular delay de red
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // Validaciones
+      const datos = {
+        numero: form.numero.value.replace(/\s/g, ''),
+        titular: form.titular.value.trim(),
+        fecha: new Date(form.fecha.value),
+        cvv: form.cvv.value
+      };
+
+      if (!validarTarjeta(datos.numero)) throw new Error('Tarjeta no válida. Use Visa/Mastercard');
+      if (datos.fecha < new Date()) throw new Error('Fecha de expiración inválida');
+      if (!/^[A-Za-z\sáéíóúÁÉÍÓÚñÑ]+$/.test(datos.titular)) throw new Error('Nombre en tarjeta inválido');
+
+      // Éxito
+      form.classList.add('oculto');
+      document.getElementById('mensaje-exito').classList.add('visible');
+      
+      setTimeout(() => {
+        window.location.href = `confirmacion.html?producto=${params.get('producto')}`;
+      }, 3000);
+
+    } catch (error) {
+      mostrarError(error.message, form);
+    } finally {
+      spinner.remove();
+      submitBtn.disabled = false;
+    }
+  });
+});
+
+function mostrarError(mensaje, contenedor) {
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'error-mensaje';
+  errorDiv.textContent = mensaje;
+  contenedor.insertBefore(errorDiv, contenedor.lastElementChild);
+  
+  setTimeout(() => errorDiv.remove(), 5000);
+}
+
+=== ./templates/confirmacion.html ===
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra Exitosa - FERREMAS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 class="Titulo"><span>The </span>FERREMAS</h1>
+    </header>
+    
+    
+
+    <main class="contenedor sombra">
+        <div class="mensaje-exito">
+            <h2>¡Compra realizada con éxito! 🛠️✅</h2>
+            <div class="iconos">
+                <img src="img/tool-box.png" alt="Ícono de éxito" width="100">
+            </div>
+            <p class="texto-exito">Recibirás un correo electrónico con los detalles de tu transacción.</p>
+            <a href="index.html" class="boton">Volver al Inicio</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="contenedor">
+            <p>Todos los derechos reservados &copy; 2025</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+=== ./templates/index.html ===
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FERREMAS</title>
+
+    <link rel="preload" href="{{ url_for('static', filename='css/normalize.css') }}" as="style" />
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <h1 class="Titulo"><span>The </span>FERREMAS</h1>
+    </header>
+    <div class="nav-bg">
+      <nav class="Navegacion-principal contenedor">
+        <a href="{{ url_for('vista_index') }}">Inicio</a>
+        <a href="{{ url_for('vista_nosotros') }}">Usuarios</a>
+        <a href="{{ url_for('vista_inventario') }}">Catalogo</a>
+        <a href="#">Clientes</a>
+        <a href="#">Sucursal</a>
+      </nav>
+    </div>
+
+    <section class="Hero">
+      <div class="contenido-hero">
+        <h2>La mejor <span> ferretería</span></h2>
+      </div>
+    </section>
+
+    <main class="contenedor sombra">
+      <h2>Herramientas</h2>
+
+      <div class="servicios">
+        <section class="servicio">
+          <h3>Herramientas Manuales</h3>
+          <div class="iconos">
+            <a href="manuales.html">
+              <img src="{{ url_for('static', filename='img/tool-box.png') }}" alt="Icono Herramientas Manuales" width="44" height="44" />
+            </a>
+          </div>
+          <p>
+            En FERREMAS contamos con una amplia variedad de herramientas manuales ideales para trabajos de precisión, reparaciones domésticas y proyectos profesionales. Calidad, durabilidad y ergonomía en cada producto.
+          </p>
+        </section>
+
+        <section class="servicio">
+          <h3>Materiales Básicos</h3>
+          <div class="iconos">
+            <a href="basicos.html">
+              <img src="{{ url_for('static', filename='img/construccion.png') }}" alt="Icono Materiales Básicos" width="44" height="44" />
+            </a>
+          </div>
+          <p>
+            Desde clavos hasta adhesivos, tenemos todos los materiales esenciales que necesitas para construir, reparar o mejorar. Nuestro stock asegura soluciones confiables para cada etapa de tu proyecto.
+          </p>
+        </section>
+
+        <section class="servicio">
+          <h3>Equipos de Seguridad</h3>
+          <div class="iconos">
+            <a href="seguridad.html">
+              <img src="{{ url_for('static', filename='img/seguridad.png') }}" alt="Icono Equipos de Seguridad" width="44" height="44" />
+            </a>
+          </div>
+          <p>
+            Tu seguridad es nuestra prioridad. Encuentra guantes, cascos, lentes y más para protegerte durante cada tarea. Productos certificados y cómodos para trabajar con confianza.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="contenedor">
+        <p>Todos los derechos reservados &copy; 2025</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+
+=== ./templates/inventario.html ===
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herramientas y Equipos</title>
+  <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+  <header class="nav-bg">
+    <nav class="Navegacion-principal contenedor">
+      <a href="{{ url_for('vista_index') }}">Inicio</a>
+      <a href="{{ url_for('vista_nosotros') }}">Usuarios</a>
+      <a href="{{ url_for('vista_inventario') }}">Catalogo</a>
+      <a href="#">Clientes</a>
+      <a href="#">Sucursal</a>
+    </nav>
+  </header>
+
+  <main class="contenedor sombra">
+    <section>
+      <h1 class="Titulo">Herramientas <span>Basicas</span></h1>
+      <h3>Disponibles en Stock</h3>
+      <ul class="lista">
+        <li>Cemento</li>
+        <li>Arena</li>
+        <li>Ladrillos</li>
+        <li>Acabados</li>
+        <li>Pinturas</li>
+        <li>Barnices</li>
+        <li>Cerámicos</li>
+      </ul>
+    </section>
+
+    <section>
+      <h1 class="Titulo">Herramientas <span>Manuales</span></h1>
+      <h3>Disponibles en Stock</h3>
+      <ul class="lista">
+        <li>Martillos</li>
+        <li>Destornilladores</li>
+        <li>Herramientas Eléctricas</li>
+        <li>Taladros</li>
+        <li>Sierras</li>
+        <li>Lijadoras</li>
+        <li>Materiales de Construcción</li>
+      </ul>
+    </section>
+
+    <section>
+      <h1 class="Titulo">Equipos <span>de seguridad</span></h1>
+      <h3>Disponibles en Stock</h3>
+      <ul class="lista">
+        <li>Cascos</li>
+        <li>Guantes</li>
+        <li>Lentes de Seguridad</li>
+        <li>Accesorios Varios</li>
+        <li>Tornillos y Anclajes</li>
+        <li>Fijaciones y Adhesivos</li>
+        <li>Equipos de Medición</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="contenedor">
+      <p>Todos los derechos reservados &copy; 2025</p>
+    </div>
+  </footer>
+</body>
+</html>
+
+
+=== ./templates/nosotros.html ===
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nuestro Equipo</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <header class="nav-bg">
+    <nav class="Navegacion-principal contenedor">
+      <a href="{{ url_for('vista_index') }}">Inicio</a>
+      <a href="{{ url_for('vista_nosotros') }}">Usuarios</a>
+      <a href="{{ url_for('vista_inventario') }}">Catalogo</a>
+      <a href="#">Clientes</a>
+      <a href="#">Sucursal</a>
+    </nav>
+  </header>
+
+  <main class="contenedor sombra">
+    <section>
+      <h1 class="Titulo">Nuestro <span>Equipo</span></h1>
+      <h3>Conoce a las personas que hacen posible Ferremas</h3>
+      <ul class="lista">
+        <li>Juan Pérez - Gerente General</li>
+        <li>María González - Encargada de Inventario</li>
+        <li>Carlos López - Atención al Cliente</li>
+        <li>Lucía Rojas - Cajera</li>
+        <li>Pedro Castro - Jefe de Bodega</li>
+        <li>Sofía Martínez - Vendedora</li>
+        <li>Andrés Torres - Técnico en Herramientas</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="contenedor">
+      <p>Todos los derechos reservados &copy; 2025</p>
+    </div>
+  </footer>
+</body>
+</html>
+
+
+=== ./templates/pago.html ===
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proceso de Pago - FERREMAS</title>
+    
+    <link rel="preload" href="{{ url_for('static', filename='css/normalize.css') }}" as="style" />
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1 class="Titulo"><span>The </span>FERREMAS</h1>
+    </header>
+    
+    <div class="nav-bg">
+        <nav class="Navegacion-principal contenedor">
+            <a href="index.html">Inicio</a>
+            <a href="manuales.html">Manuales</a>
+            <a href="basicos.html">Básicos</a>
+            <a href="seguridad.html">Seguridad</a>
+        </nav>
+    </div>
+
+    <main class="contenedor sombra">
+        <h2>Proceso de Pago</h2>
+        
+        <div class="formulario">
+            <form id="formulario-pago">
+                <fieldset>
+                    <legend>Datos de la Tarjeta</legend>
+                    
+                    <div class="contenedor-campos">
+                        <div class="campo">
+                            <label>Número de Tarjeta</label>
+                            <input class="input-text" type="text" placeholder="4242 4242 4242 4242" maxlength="16" required>
+                        </div>
+                        
+                        <div class="campo">
+                            <label>Titular de la Tarjeta</label>
+                            <input class="input-text" type="text" placeholder="JUAN PEREZ" required>
+                        </div>
+                        
+                        <div class="campo">
+                            <label>Fecha de Expiración</label>
+                            <input class="input-text" type="month" required>
+                        </div>
+                        
+                        <div class="campo">
+                            <label>CVV</label>
+                            <input class="input-text" type="text" placeholder="123" maxlength="3" required>
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <div class="flex alinear-derecha w-sm-100">
+                    <button class="boton" type="submit">Realizar Pago</button>
+                </div>
+            </form>
+            
+            <div id="mensaje-exito" class="oculto">
+                <h3>¡Pago Exitoso! 🎉</h3>
+                <p>Redirigiendo a la confirmación...</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="contenedor">
+            <p>Todos los derechos reservados &copy; 2025</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('formulario-pago').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Simulación de validación
+            const inputs = Array.from(this.elements).filter(el => el.tagName === 'INPUT');
+            const todosValidos = inputs.every(input => input.checkValidity());
+
+            if(todosValidos) {
+                document.getElementById('formulario-pago').classList.add('oculto');
+                document.getElementById('mensaje-exito').classList.remove('oculto');
+                
+                setTimeout(() => {
+                    window.location.href = 'confirmacion.html';
+                }, 2000);
+            } else {
+                alert('Por favor complete todos los campos correctamente');
+            }
+        });
+    </script>
+    <script src="js/pago.js"></script>
+</body>
+</html>
+
+=== ./wait ===

@@ -1,9 +1,14 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template , request
+from api.webpay import crear_transaccion
 import json
 import os
 import sys
+from dotenv import load_dotenv
+load_dotenv() 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from api.herramientas_manuales import herramientas_manual_bp
+from api.banco_central import obtener_tipo_cambio
+
 
 app = Flask(__name__)
 
@@ -79,9 +84,39 @@ def vista_confirmacion():
 def vista_nosotros():
     return render_template('nosotros.html')
 
-@app.route('/pago')
-def vista_pago():
-    return render_template('pago.html')
+# Endpoint para buscar productos por código
+@app.route("/api/producto/<codigo_producto>")
+def obtener_producto(codigo_producto):
+    inventario = cargar_todos_los_datos()
+    for categoria, productos in inventario.items():
+        for producto in productos:
+            if producto.get("codigo_producto") == codigo_producto:
+                return jsonify(producto)
+    return jsonify({"error": "Producto no encontrado"}), 404
+
+# Endpoint para verificar stock
+@app.route("/api/stock/<codigo_producto>")
+def verificar_stock(codigo_producto):
+    producto = obtener_producto(codigo_producto).get_json()
+    if "error" in producto:
+        return jsonify(producto), 404
+    return jsonify({"stock": producto["stock"]})
+
+@app.route("/procesar-pago", methods=["POST"])
+def procesar_pago():
+    try:
+        data = request.get_json()
+        respuesta = crear_transaccion(
+            monto=data["monto"],
+            orden_compra=data["orden_compra"]
+        )
+        return jsonify(respuesta), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/api/tipo-cambio")
+def tipo_cambio():
+    return jsonify(obtener_tipo_cambio())
 
 if __name__ == "__main__":
     app.run(debug=True)
